@@ -7,7 +7,7 @@
   <title>Document</title>
 </head>
 <body>
-
+  <span id="name"></span>
 
 
   <script>
@@ -57,6 +57,117 @@
 
     console.log(!false == true || true);
     console.log("안녕" != "hi");
+
+    document.write('<br>');
+    document.write('<br>');
+    //변수 ; 할당
+    let number = 100; //값을 유추할 수 있는 식별자
+    document.write(number+100);
+    let string = "줄바꿈이 들어간 \n 문자열";
+    console.log(string);      // let 선언은 한번만 가능 재할당을 통해 값을 넣어줌
+    string = "값을 수정"
+    console.log(string);
+
+    var num = 1;
+    console.log(num);
+    var num = 40;            // var 선언과 재할당이 여러번 가능
+    console.log(num);
+
+    let sum = 1+10+100;
+    console.log(sum);
+
+    let name = "홍길동";
+    let age = 20;
+    let cellPhone= "010-123-4567";
+
+    name = "성춘향";
+    console.log(name);
+
+    let hi = 'hello world';
+    console.log(hi);
+
+    let num1 = 400;
+    let num2 = 30;
+    console.log(num1+num2);
+
+    let currentHumidity = 70;
+    let rainHumidity = 65;
+    let israin = currentHumidity < rainHumidity;
+
+    console.log(currentHumidity == rainHumidity);
+    console.log(currentHumidity > rainHumidity);
+    console.log(israin || (currentHumidity > rainHumidity));
+
+    console.log("복합대입연산자");
+    let step = 2;
+    console.log(step += 2);
+    console.log(step = step+2); //자기자신의 변수에게 2씩 더해주는 표현식
+    console.log(step -= 2);
+    console.log(step *= 2);
+    console.log(step /= 2);
+
+    console.log("증감연산자");
+    let oneCount = 0;
+    oneCount++;
+    console.log(oneCount);
+    console.log(oneCount++);
+    console.log(oneCount);
+    console.log(++oneCount);
+
+    let sumNum1 = 0;
+    let sumNum = 0;
+    sumNum++;
+    console.log(sumNum++);
+    console.log(sumNum);
+
+    console.log(sumNum1 += 1);
+
+    name=Infinity;
+    console.log(name>10);
+    console.log(name>Number.MAX_SAFE_INTEGER);
+
+    name = 123456789
+    console.log(typeof(name));
+    console.log(typeof(hi));
+    console.log(typeof(israin));  //typeof() 자료형 확인\
+
+    name=null
+    console.log(typeof(name));
+
+    console.log('강제자료형변형');
+    Number();
+    String();
+    Boolean(); //각각의 자료형은 Number, String, Boolean 은 형변환함수를 이용해서 자료형을 강제로 변경
+    //숫자와 문자열 사이에 + 하면 숫자가 자동으로 문자열
+
+    const MAX = 100;
+    console.log(MAX);
+    //MAX = 10; 값 지정X
+
+    console.log('특수자료형');
+    let underfinedNum;
+    let nullNum = null;
+    console.log(underfinedNum); //underfinedNum 은 값을 지정해주지않은 undefined 자료형 
+    console.log(nullNum);       //null 은 값을 임의로 비워둔 null 자료형 
+    //두개의 값은 비교 했을때 참
+    
+    console.log(Number("String")); //숫자로 형변환한 값이 숫자가 아닐때 NaN (not a Number)
+    console.log(Number("String") == NaN);
+    
+    num=10;
+    text=": 숫자입니다";
+    console.log(typeof(num));
+    console.log(typeof(text));
+    let numText = num+text;
+    console.log(typeof(numText));
+    console.log(numText);
+
+    const MAX_WIDTH = 2;
+    console.log(MAX_WIDTH-5);
+
+    document.getElementById('name').innerHTML="랄라랄";
+    
+
   </script>
 </body>
 </html>
