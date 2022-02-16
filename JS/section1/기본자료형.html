@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+
+
+
+  <script>
+    console.log('gt');
+    document.write("기본자료형 - 숫자<br>");
+    document.write(3);
+    document.write('<br>');
+    document.write(4+5);
+    document.write('<br>');
+    document.write(4*5);
+    document.write('<br>');
+    document.write((4+5)*10);
+    document.write('<br>');
+    document.write(4/5);
+    document.write('<br>');
+    document.write(5%3); //나머지 연산자 % 는 정수만 이용해서 사용
+
+    for(let i=1; i < 10; i++) { //3의 배수
+    console.log(3*i);
+    }
+
+    document.write("<br><br> 기본자료형 - 문자열<br>");
+    document.write('홑따옴표를 사용해서 문자열을 넣을 수 있다<br>');
+    document.write("this is'string'.<br>");
+    document.write("\n 줄바꿈을 \n 할 수 있다.<br>"); //console 창에서 확인 가능 >> console.log('줄바꿈\n 합니다')
+    document.write("안녕"+"하세요 <br>");
+    document.write(`1+3=${1+3}`); // 템플릿 문자열 =${} 사용,, 결과=> 1+3=4 
+
+    console.log('반갑습니다'+'홍길동입니다')
+    console.log('\t반갑습니다\n\t\t홍길동입니다');
+    console.log(`100*273+23=${100*273+23}`);
+
+    document.write("<br><br> 기본자료형 boolean <br>")
+    document.write(true);
+    document.write('<br>');
+    document.write(50<60);
+    document.write('<br>');
+    document.write(50<40);
+    document.write('<br>');
+    document.write("의자"=="책상");
+    document.write('<br>');
+    document.write(!true);
+    document.write('<br>');
+    document.write(true || false); //or
+    document.write('<br>');
+    document.write(true && false); //false 
+
+    console.log(!false == true || true);
+    console.log("안녕" != "hi");
+  </script>
+</body>
+</html>
