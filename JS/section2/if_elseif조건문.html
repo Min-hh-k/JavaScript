@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+
+  <script>
+    //if _ else if 조건문
+    //성적이 주어지면 등급을 출력 100~90=A / 89~80=B / 79~70=C / 그 외는 F
+
+    let score = 95//prompt('성적을 입력하세요')
+    if (score >= 90) {
+      document.write('A')
+    } else if (score >= 80) {
+      document.write('B')
+    } else if (score >= 70) {
+      document.write('C')
+    } else {
+      document.write('F')
+    }
+
+document.write('<p>')
+
+    //미세먼지 판별하기
+    let dust =  12
+    if (dust >=151) {
+      document.write('매우나쁨')
+    } else if (dust >= 81) {
+      document.write('나쁨')
+    } else if (dust >= 31) {
+      document.write('보통')
+    } else {
+      document.write('좋음')
+    }
+
+    document.write('<p>')
+
+    //홀수 짝수 판별
+    let divide = 4%2
+    if (divide == 0) {
+      document.write('짝수')
+    } else if (divide !== 0) {
+      document.write('홀수')
+    }
+
+    document.write('<p>')
+
+    //음수,양수,0판별
+    let cal = -5
+    if (cal > 0) {
+      document.write('양수')
+    } else if (cal = 0) {
+      document.write('0')
+    } else {
+      document.write('음수')
+    }
+
+    document.write('<p>')
+
+    //할인율 적용된 금액 출력 10000원 이상 -5%, 50000원 이상 -10%, 100000원 이상 -15%
+    let discount = prompt('구매 금액을 입력하세요!')
+    let charge1 = (discount-(discount*0.15))
+    let charge2 = (discount-(discount*0.1))
+    let charge3 = (discount-(discount*0.05))
+
+      if (discount >= 100000) {
+      document.write(charge1)
+    } else if (discount >= 50000) {
+      document.write(charge2)
+    } else {
+      document.write(charge3)
+    }
+
+  </script>
+</body>
+</html>
