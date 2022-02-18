@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <h1>업다운 게임</h1>
+  <p>설명</p>
+  <p>
+    컴퓨터가 랜덤한 수를 정한다. <br>
+    사용자는 input text 안에 숫자를 넣는다 <br>
+    input의 button을 이용해서 값을 받아온다. <br>
+    documnet.getElementById('') 을 사용해서 값 가져온다 <br>
+    이 값을 랜덤한 수와 비교해서 큰지 작은지 알려준다 <br>
+    랜덤한 수를 맞출때 까지 반복
+  </p>
+  <p>body 아래 script 태그에 사용자가 적을 변수값과 랜덤값(Math.random*100)을<br> 
+    넣어 if 문을 만든다
+  </p>
+
+  <input id="text" type="text" placeholder="값을 입력하세요">
+  <input id="button "type="button" value="button">
+
+
+
+  <script>
+    let random = Math.random()*100
+    random = parseInt(random) //정수
+
+    let user = prompt('값을 입력해주세요')
+
+    while (true) {
+    if(random > user) {
+      user = prompt('값이 높아요')
+      document.write('up!')
+      
+    } else if (random < user) {
+      user = prompt('값이 낮아요')
+      document.write('down!')
+      
+    } else if (random === user) {
+      document.write('same!!')
+      break
+    }
+  }
+
+
+  </script>
+</body>
+</html>
