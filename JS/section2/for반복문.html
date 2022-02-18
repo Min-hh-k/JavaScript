@@ -83,6 +83,38 @@ document.write('<p>')
       index++
     }
 
+    document.write('<p>')
+
+    // 점수 배열 평균값
+    let scoreArray = [60,70,80,90,40,70,70,80]
+    let scoreSum = 0
+    for (let score of scoreArray) {
+      scoreSum += score
+    }
+    document.write(scoreSum / scoreArray.length) // 평균값 출력
+
+    document.write('<p>')
+
+    // 홀수만 모두 더한 값 
+    let sum2 = 0
+    
+    for(let i = 1; i <= 100; i++){
+      if(i % 2 == 1){
+        sum2 += i
+      }
+    }
+    document.write("1부터 100까지 홀수의 합 : " + sum2 + "<br />");
+
+    document.write('<p>')
+
+    //3과 5의 배수의 합 출력
+    let result2 = 0
+    for(let i = 1; i <=100; i++){
+      if(i % 3 == 0 || i % 5 == 0)
+      result2 += i
+    }
+    document.write("3과 5의 배수의 합 : " + result2 + "<br />");
+
   </script>
 </body>
 </html>
