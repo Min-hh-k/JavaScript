@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    const pi = 3.14159265358979
+    console.log(pi)
+
+    const str = pi.toFixed(2) // toFixed(3) 소수점 아래 3자리 까지 출력 
+    console.log(str)
+    console.log(typeof str)
+
+    console.log('')
+
+    const integer = parseInt(str) //정수로 숫자데이터 반환
+    const float = parseFloat(str) // 소수점 자리 까지 유지하며 숫자데이터로 변환
+    console.log(integer)
+    console.log(float)
+    console.log(typeof integer, typeof float)
+
+    console.log('abs:', Math.abs(-12)) // 12
+    console.log('min:', Math.min(2, 8)) // 2
+    console.log('max:', Math.max(2, 8)) // 8
+    console.log('ceil:', Math.ceil(3.14)) // 4
+    console.log('floor:', Math.floor(3.14)) // 3
+    console.log('round:', Math.round(3.46)) // 3
+    console.log('random:', Math.random()) //random 0.xx~
+
+  </script>
+</body>
+</html>

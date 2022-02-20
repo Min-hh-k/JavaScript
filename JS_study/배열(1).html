@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <h2>배열</h2>
+  <script>
+    const numbers = [1, 2, 3, 4]
+    const fruits = ['Apple','Banana','Cherry']
+
+    console.log(numbers[1]) // 2
+    console.log(fruits[2]) // Cherry
+
+    console.log(numbers.length) // 4
+    console.log(fruits.length) // 3
+    console.log([1, 2].length) // 2 
+    console.log([].length) // 0
+
+    console.log(numbers.concat(fruits)) // 두 배열 데이터를 병합해서 새로운 배열 출력(원본손상x)
+    //[0, 1, 2, 3, 4, 'Apple','Banana','Cherry']
+    console.log(numbers)
+    console.log(fruits)
+
+    //.forEach() 배열데이터의 갯수만큼 콜백함수를 반복적으로 실행하는 용도
+  fruits.forEach(function (element, index) { //.forEach는 인수로 콜백함수 , (apple banana cherry, 0 1 2)
+    console.log(element, index) //콤백함수의 매개변수로 각각의 (반복아이템, 반복횟수)
+  })
+/* > Apple 0
+    Banana 1
+    Cherry 2 */
+
+    //.map()
+
+    const a = fruits.forEach((fruit, i) => {
+      console.log(`${fruit}-${i}`)
+    })
+    console.log(a)
+
+    const b = fruits.map(function(fruit, i) {
+      return {//`${fruit}-${i}` // .map()은 return으로 데이터를 반환하여 새로운 배열을 출력
+        id: i,
+        name: fruit
+      }
+    })
+    console.log(b)
+    
+    const c = fruits.map((fruit,i) => ({ //화살표 함수로 변경
+      id: i,
+      name: fruit
+    }))
+    console.log(c)
+
+
+  </script>
+</body>
+</html>
