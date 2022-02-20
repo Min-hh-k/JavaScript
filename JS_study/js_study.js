@@ -68,3 +68,20 @@ const b = a.split('').reverse().join(''); // 메소드 체이닝(체인처럼 �
 
 console.log(a); // hello~
 console.log(b); // ~olleh
+
+
+function user(first, last) {
+  this.firstName = first
+  this.lastName = last
+}
+user.prototype.getFullName = function () {
+  return `${this.firstName} ${this.lastName}`
+}
+
+const heropy = new user('heropy','park')
+const amy = new user('amy','clarke')
+const neo = new user('neo','boost')
+
+console.log(heropy.getFullName())
+console.log(amy.getFullName())
+console.log(neo.getFullName())

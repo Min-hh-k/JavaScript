@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    //String.prototype.indexOf()
+    const result = 'Hello world!'.indexOf('world')
+    console.log(result) // =6 , world 의 w의 시작하는 인덱스는 6
+    
+    const results = 'Hello world!'.indexOf('heropy')
+    console.log(results) // = -1 , 일치하는 값이 없을 때  -1 출력
+
+    const str = '0123'
+    console.log(str.length)
+    console.log('0123'.length) // 공백도 length 길이포함
+    console.log(str.slice(0,3)) // 0 처음부터 3 직전까지 자른값 출력 /0 1 2 세개/
+    console.log(str.replace('3', '55689')) //앞 변수(0123)의 3 숫자를 찾아 바꿔줌 >> 01255689
+
+    const email = 'alszn2222@gmail.com'
+    // @ 기호 앞의 데이터를 출력
+    console.log(email.match(/.+(?=@)/)[0])  //  /.+(?=)/ 정규표현식  // 출력값= alszn2222
+
+    const trims = '   hello  world   '
+    console.log(trims.trim()) //trim 앞뒤의 공백 제거
+  </script>
+</body>
+</html>

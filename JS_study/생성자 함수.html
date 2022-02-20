@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    function User(first, last) { // 생성자 함수 'U'ser
+  this.firstName = first //this = User
+  this.lastName = last
+}
+User.prototype.getFullName = function () {
+  return `${this.firstName} ${this.lastName}`
+}
+
+class Users {
+  constructor(first,last) {
+    this.firstName = first
+    this.lastNmae = last
+  }
+  getFullName() {
+    return `${this.firstName} ${this.lastName}`
+  }
+}
+const heropy = new User('heropy','park')  //파스칼 케이스 new + User 대문자
+const amy = new User('amy','clarke')
+const neo = new User('neo','boost')
+
+console.log(heropy.getFullName())
+console.log(amy.getFullName())
+console.log(neo.getFullName())
+
+//this 
+//일반 함수는 호출위치에서 따라 this 정의
+//화살표 함수는 자신이 선언된 함수 범위에서 this 정의!
+
+const hero = {
+  name: 'hero',
+  normal: function () {
+    console.log(this.name) //this 는 heropy 에서 name을 꺼내씀
+  },
+  arrow: () => {
+    console.log(this.name)
+  }
+}
+hero.normal()
+hero.arrow()
+
+const ami = {
+  name: 'ami',
+  normal: hero.normal,
+  arrow: hero.arrow
+}
+
+ami.normal()
+ami.arrow()
+
+const timer = {
+  name: 'heropy!',
+  timeout: function () {
+    setTimeout(() => {
+      console.log(this.name)
+    }, 2000)
+  }  
+}
+
+timer.timeout()
+
+class Vehicle {
+  constructor(name, wheel) {
+    this.name = name
+    this.whell = wheel
+  }
+}
+
+const myVehicle = new Vehicle('운송수단', 2)
+console.log(myVehicle)
+
+//extends 확장 (상속)
+class Bicycle extends Vehicle {
+  constructor(name, wheel) {
+    super(name,wheel) //super은 extends 뒤 Vehicle
+  }
+}
+const myBicycle = new Bicycle('삼천리', 2)
+const daughtersBicycle = new Bicycle('세발자전거', 3)
+console.log(myBicycle)
+console.log(daughtersBicycle)
+
+
+class Car extends Vehicle {
+  constructor(name, wheel, license, card) {
+    super(name, wheel)
+    this.license = license
+    this.card = card
+  }
+}
+const myCar = new Car('BMW', 4, true)
+const daughtersCar = new Car('벤츠', 4, false, true)
+console.log(myCar)
+console.log(daughtersCar)
+
+
+  </script>
+</body>
+</html>
