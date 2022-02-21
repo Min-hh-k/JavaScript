@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    //1 번 2)
+    let name = "홍길동"
+    name = "성춘향"
+    console.log(name)
+
+    /*2번
+    1) "Study" == string
+    2) 3040 == number
+    3) true == boolean
+    4) "False" = string
+    5)  302.1 == number
+    */
+    console.log(typeof 302.1)
+
+    /*3번
+    1) String(123) > '123'
+    2) Number("123") > 123
+    3) Number("string") > NaN
+    */
+
+    /* 4번
+    1) 10/4 === 2.5
+    2) 10%2 === 0
+    3) let sum = 1+2+3; 일 때 sum의 값? > 6
+    4) 변수 num에 어느 수를 넣어도 변수 choice(0~4) 사이의 수가 나오게 하려면 어떤 연산자
+      를 사용해야하는지 적으세요
+      let choice = num < 5
+    */
+    
+    /* 5번
+    1) "word" != "javascript" > true
+    2) 0 =="" > true
+    3) 0 === false > false
+    */
+
+    /*6번
+    if문 true, false / if / else / else if
+    1) 10과 20 중 큰 수를 출력하는 조건문을 만드세요(단, 10과 20은 변수 두어 비교한다)
+    */
+    let x = 10
+    let y = 20
+    if (x < y) {
+      document.write("6번 1)"+" x가 y보다 작다")
+    }
+  
+    document.write('<p>')
+  /*
+  2) 점수가 65일 때, 70이상은 합격, 60이상은 보충수업 60미만은 재수강이라 출력하는 조건
+  문을 만드세요 
+  */
+  let score = 65
+  if (score >= 70) {
+    document.write("합격")
+  } else if (score >= 60) {
+    document.write("보충수업")
+  } else if (score < 60) {
+    document.write("재수강")
+  }
+
+  document.write('<p>')
+  // 7번 논리 연산자 ||, &&, ! 
+  let num = 160
+  /*
+  1) (num < 100) || (num > 170) >> false
+  2) (num > 140) && (num < 180) >> true
+  3) !(num <120) >> true
+  */ 
+
+  //8번 while문을 사용하여 1~10 까지 출력하세요
+  let q = 1;
+  while (q < 11) {
+    document.write("8번 정답: " + q + "<br>")
+      q++;
+  }  
+
+  document.write('<p>')
+  /*9번 
+  1) for문을 사용하여 10~1 까지 출력하세요
+  */
+  let ten = 0
+  for (let i = 10; i>0; i--) {
+    document.write( i + " ")
+  }
+
+  document.write('<p>')
+  /*
+  2) for of를 사용하여 let numArray = [1,2,3,4] 의 요소 값을 출력하세요
+  */
+  let numArray = [1,2,3,4]
+  for (let value of numArray) {
+    document.write(value + " ")
+  } 
+
+  document.write('<p>')
+  /*
+  3) for in을 사용하여 let flowerArray = ["해바라기",“튤립”,“장미”]의 요소 값을 출력하세요
+  */
+
+  let flowerArray = ["해바라기","튤립", "장미"]
+  for (let values in flowerArray) {
+    document.write(values + " ")
+  }
+
+  document.write('<p>')
+  /*
+  10번
+  break, continue
+  1) while(true) 반복문에서 break;를 이용하여 1~100까지 출력하세요
+  */
+  let w = 1
+    while (w < 101) {
+      document.write(w + " ")
+      w++
+      break
+  }
+
+
+  document.write('<p>')
+  /*
+  2) for 반복문에서 1~50까지 출력할 때, continue를 이용하여 3의 배수를 제외하고 출력하세
+  요.
+  */
+
+  let three = 3
+  for(let i = 0; i < 51; i++) {
+    if(i%three == 0)
+    continue
+    document.write(i + " ")
+  }
+  
+  document.write('<p>')
+
+  /*
+  1. 두 변의 길이 15, 2 를 가진 사각형의 둘레와 넓이를 구하는 코드를 작성하세요.
+(단, 두 변의 길이는 변수로 둔다)
+  */
+    let leng1 = 15
+    let leng2 = 2
+    document.write("둘레: " + (leng1 + leng2)*2 + "<br>")
+    document.write("넓이: " + (leng1 * leng2))
+
+
+    document.write('<p>')
+    /*
+    2. 40분을 초로 바꿔서 출력하는 코드를 작성하세요.
+    (단, 분은 변수로 둔다)
+    */
+    let minutes = 40
+    document.write(minutes*60 + "초")
+
+
+    document.write('<p>')
+      /* 조건문
+      1. 세 변 길이가 10, 20, 12인 도형이, 삼각형이 될 수 있는지 출력하고, 될 수 있다면, 어떤
+      삼각형인지 출력하시오
+      (단, 세 변은 각기 다른 변수로 둔다)
+      * 삼각형의 규칙 : 가장 긴 한 변의 길이 < 다른 변의 길이 + 다른 변의 길이
+      * 피다고라스의 정리:
+      직각 : 가장 긴 한 변 길이의 제곱 = 다른 변의 길이 제곱 + 다른 변의 길이 제곱
+      예각 : 가장 긴 한 변 길이의 제곱 < 다른 변의 길이 제곱 + 다른 변의 길이 제곱
+      둔각 : 가장 긴 한 변 길이의 제곱 > 다른 변의 길이 제곱 + 다른 변의 길이 제곱
+      출력 결과 : 삼각형이 될 수 있습니다. 둔각입니다.
+      */
+      let one = 10
+      let two = 20
+      let thr = 12
+      if(two < one+thr) {
+        if((two*two) === (one*one) + (thr*thr)) {
+          document.write("삼각형이 될 수 있습니다. 직각입니다")
+        } else if ((two*two) < (one*one) + (thr*thr)) {
+          document.write("삼각형이 될 수 있습니다. 예각입니다")
+        } else if ((two*two) > (one*one) + (thr*thr)) {
+          document.write("삼각형이 될 수 있습니다. 둔각입니다")
+        }
+      }
+      
+      document.write('<p>')
+    /*
+    2. 키와 몸무게를 170cm, 66kg, 비만도를 계산하고 그 결과에 따라 결과를 출력하는 코드를
+    작성하세요.
+    하시오)
+    * BMI 지수 구하는 법 : 몸무게(kg) / 키(m)의 제곱
+    */
+    
+    let tall = 1.7 //키는 m로 표시 170 => 1.7
+    let weight = 66
+    let bmi = weight/(tall*tall)
+    if(bmi < 18.5) {
+      document.write("저체중입니다")
+    } else if (18.5 <= bmi < 23 ) {
+      document.write("정상입니다")
+    } else if (23 <= bmi < 25) {
+      document.write("과체중입니다")
+    } else if (25 <= bmi < 30) {
+      document.write("비만입니다")
+    } else if (30 <= bmi) {
+      document.write("고도비만입니다")
+    }
+    
+    document.write('<p>')
+    /*
+    3. 나이가 20 이고 2구간을 이용할 때 지하철 요금표 계산하는 코드를 작성하세요
+    (단, 나이와 구간은 변수로 둔다.
+    * 어른 : 19세 이상 / 청소년 13세 이상~18세 이하 / 어린이 6세 이상~12세 이하 )
+    */
+
+    let age = 20
+    let section = 2
+    if (section === 1 && 19 <= age ) {
+      document.write("1300원입니다.")
+    } else if (section === 1 && 13 <= age <= 18 ) {
+      document.write("1050원입니다.")
+    } else if (section === 1 && 6 <= age <= 12 ) {
+      document.write("650원입니다.")
+    } else if (section === 2 &&  19 <= age ) {
+      document.write("1500원입니다.")
+    } else if (section === 2 && 13 <= age <= 18 ) {
+      document.write("1200원입니다.")
+    } else if (section === 2 && 6 <= age <= 12 ) {
+      document.write("750원입니다.")
+    }
+
+    document.write('<p>')
+    /*
+    4. 현재 학점이 140학점이고, 평점이 3.5일 때,
+    이수한 학점수가 140학점이상이고 평점이3.0이상이면 “졸업가능합니다!”를 출력하고 그렇지
+    않으면 “졸업이 힘듭니다!”를 출력하도록
+    */
+    let total = 140
+    let grade = 3.5
+    if(total >=140 && grade >= 3) {
+      document.write("졸업가능합니다!")
+    } else {
+      document.write("졸업이 힘듭니다!")
+    }
+
+    document.write('<p>')
+    /*
+    5. 주원이는 월, 수, 금, 일 아르바이트를 간다.
+    현재 요일이 월 일 때, 아르바이트 가는 날이면 "oh my god"를 가는 날이 아니면 "enjoy"를
+    출력하시오.
+    (단 요일은 변수로 둔다)
+    */
+    let dayTime = "월"
+
+    if(dayTime = "월") {
+      document.write("oh my god^^")
+    } else if (dayTime = "화") {
+      document.write("Enjoy^^")
+    } else if (dayTime = "수") {
+      document.write("oh my god^^")
+    } else if (dayTime = "목") {
+      document.write("Enjoy^^")
+    } else if (dayTime = "금") {
+      document.write("oh my god^^")
+    } else if (dayTime = "토") {
+      document.write("Enjoy^^")
+    } else if (dayTime = "일") {
+      document.write("oh my god^^")
+    }
+
+    document.write('<p>')
+    //반복문
+    /*
+    1. 8부터 100사이의 홀수를 출력하는 코드를 작성하세요
+    (단, 숫자 8과 100은 변수로 둔다)
+    */
+
+    let numOne = 8
+    let numTwo = 100
+    for(let i = 8; i<100; i++) {
+      if (i%2 === 1) {
+        document.write(i + ' ')
+      }
+    }
+
+    document.write('<p>')
+    /*
+    2. 30부터 1까지 출력하고 30~1까지의 합을 출력하는 코드를 작성하세요.
+    (단, 숫자 30은 변수로 둔다)
+    */
+    let numT = 30
+    while (0 < numT) {
+      document.write(numT + " ")
+      numT--
+    }
+    let sumT = 0
+    for(let i=0; i <= 30; i++) {
+      sumT += i
+    }
+    document.write("총합:" + sumT)
+
+    document.write('<p>')
+    /*
+    3. 5팩토리얼을 값을 구하는 코드를 작성하세요.
+    (단, 숫자 5는 변수로 둔다)
+    * 팩토리얼 n! = n*(n-1)*(n-2) ... *2*1
+    */
+    
+    /*let num5 = 5
+    for(let i = 1; 0 < i <=5; i++) {
+      num5 += i
+      
+    }
+    document.write(num5 + " ") */
+
+
+    document.write('<p>')
+    /*
+    4. 가로 세로길이가 4인 정사각형 안에 아래와 같이 숫자를 채워 넣는 코드를 작성하세요.
+    (단 숫자 4는 변수로 둔다)
+    */
+
+    //조건문 반복문 혼합
+    /*
+    1. 1부터 20까지의 정수 중에서 2또는 3의 배수가 아닌 수의 총합 출력하는 코드를 작성하세
+    요
+    */
+    let sum4 = 0
+    for(let i = 0; i<=20; i++) {
+      if(!(i%2 === 0 || i%3 === 0)) {
+        sum4 += i
+      }
+    }
+    document.write("총합: " + sum4)
+
+    document.write('<p>')
+    /*
+    2. 6의 약수를 오름차순으로 출력하는 구하는 코드를 작성하세요
+    (단 숫자 6은 변수로 둔다)
+    */
+    function divide(integer) {
+      for(var i=1; i <= integer; i++) {
+        if(integer % i == 0) {
+            document.write(i +" ")
+          }
+        } 
+    }
+    divide(6);
+    
+    document.write('<p>')
+    
+    /*
+    3. 두 개의 주사위를 던졌을 때, 두 눈의 합이 6이 되는 모든 경우의 수 출력하는 코드를 작
+    성하세요
+    */
+    
+    for(let i = 1; i <= 6; i++) {
+      for(let j = 1; j <= 6; j++) {
+        if (i+j === 6) {
+          document.write(`${i},${j}`+ '<br>')
+        }
+      }
+    }
+    
+
+    document.write('<p>')
+    /*
+    4. 별 탑 출력 * / ** / *** /****
+    */
+    
+    for(let i = 1; i <= 4; i++) {
+      document.write("*".repeat(i) + "<br>")
+    }
+
+    document.write('<p>')
+    /* 자바 스크립트 실습 응용
+    1. 로또복권 생성기
+    로또 번호는 1~45까지 사용하며, 한 조당 6개의 번호를 뽑는다.
+    A조 B조 C조 D조 E조 까지 있다. 웹 페이지를 열면 랜덤한 수가 출력되는 코드를 작성하세
+    요
+    Math.random() , parseInt()
+    */
+  </script>
+</body>
+</html>

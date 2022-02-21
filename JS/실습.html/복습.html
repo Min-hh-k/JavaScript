@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    //자료형, 연산자, 변수
+Number, String ,Boolean, undefined, null
+
+let string = "문자열입니다";
+let num = 100;
+let checkLight = true;
+let onSwitch = true ;
+let watte = 50 //현재 기기에 필요한 전기값
+let elect = 60; // 현재 흐르는 전기
+checkLight = watte < elect; // 현재 전기의 양이 많아야 불이 켜진다
+
+//if(참일 때 실행), else(조건문x), else if(새로운 조건)
+//조건이 값으로 들어올때 A, B , 1, 2 , 3
+//스위치 switch case 값 break
+
+//조건식 : 결과값이  boolean , > , < , == , && , ||, !
+if (true) {
+  document.write("항상 참이므로 출력");
+}
+document.write('<p>')
+// + 스위치를 넣어서 스위치가 켜졌을때 켜짐, 꺼졌을때 꺼짐
+if (checkLight && onSwitch) { // 전기가 들어왔을때 켜짐
+  document.write("<br>켜졌다!")
+} else {  // 전기가 없을때 꺼짐
+  document.write("<br>꺼졌다!")
+}
+
+let value = 1 // switch 에서 확인할 값을 변수에 넣어줌
+switch (value) { // 변수를 통해서 값 확인
+  case 1 : //case 뒤에 비교할 값 작성
+    console.log("1입니다")
+    break //case 출력을 위한 break
+  case 2 :
+    console.log("2입니다")
+    break
+  case 3 :
+    console.log("3입니다")
+    break
+  default :
+    console.log("없는 숫자입니다")
+}
+
+//반복문 - for(횟수) , while(조건이 참이라면 반복)
+//for(let i = 0; i < 10 ; i++) { }
+//while(조건식 참일때 ) { }   >조건식이 반드시 거짓이 되어야 반복문 나옴
+
+
+document.write("<p>여러줄의 내용</p>")
+document.write("<p>여러줄의 내용</p>")
+document.write("<p>여러줄의 내용</p>")
+document.write("<p>여러줄의 내용</p>") //4번
+
+for (let i = 0; i<4; i++) {
+  document.write("<p>"+i+"</p>")
+  document.write("<p>여러줄의 내용</p>")
+} // 4번 출력
+
+let a = 0;
+while (a<4) {
+  document.write("<p>"+a+"</p>");
+  a++;
+}
+
+
+// for문 - 배열
+//["일", "일"] 여러개의 값을 저장
+//인덱스를 이용해서 사용.
+
+
+let stringArray1 = [];
+let stringArray2 = new Array(); // [] 빈칸을 생성
+
+stringArray1[0] = "영번쨰 인덱스"
+
+  </script>
+</body>
+</html>
+
