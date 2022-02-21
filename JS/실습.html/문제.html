@@ -306,7 +306,15 @@
     (단, 숫자 5는 변수로 둔다)
     * 팩토리얼 n! = n*(n-1)*(n-2) ... *2*1
     */
-    
+    function factorial(n) {
+      let results = 1;
+      for (let i = 1; i <= n; i++) {
+        results *= i;
+      }
+      return results;
+    }
+    document.write("5! == " + factorial(5))
+
     /*let num5 = 5
     for(let i = 1; 0 < i <=5; i++) {
       num5 += i
@@ -381,6 +389,16 @@
     요
     Math.random() , parseInt()
     */
+
+    for(let i =1; i <=5; i++){
+      
+      for(let j=0; j <=6; j++) {
+        let randomNum = parseInt(Math.random()*45+1)
+        document.write(randomNum + ". ")
+      }
+      document.write(`${i}` + '<br>')
+    }
   </script>
 </body>
 </html>
+
