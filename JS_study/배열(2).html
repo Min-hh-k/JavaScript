@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    // .filter()
+
+    const numbers = [1, 2, 3, 4]
+    const fruits = ['Apple','Banana','Cherry']
+
+    const a = numbers.map(number => { // numbers.map() > numbers 안의 배열 갯수만 큼 반복 반환 
+      return number < 3
+    })
+    // == const a = numbers.map(number => number < 3)
+    console.log(a)
+    document.write(a) // [true, true, false, false]
+
+    const b = numbers.filter(number => { // 배열안의 배열을 특정한 기준에 의해 필터링해서 새로운 배열 반환
+      return number <= 3
+    })
+    console.log(b)
+    console.log(numbers)
+    document.write('<p>' + b + '<p>') // [1,2,3]
+
+    // .find() .findIndex()
+    const c = fruits.find(fruit => {
+      return /^B/.test(fruit) // /^B/ > 대문자 B로 시작(^)하는 데이터 .test 콜백하며 true, false 로 돌아가서 B를 찾은 값에 출력
+    })
+    console.log(c)
+
+    const d = fruits.findIndex(fruit => { // Banana 의 index는 1 ,, 따라서 1의 값을 출력
+      return /^B/.test(fruit) // /^B/ > 대문자 B로 시작(^)하는 데이터 .test 콜백하며 true, false 로 돌아가서 B를 찾은 값에 출력
+    })
+    console.log(d)
+
+    // .includes
+    const e = numbers.includes(3) //numbers 배열에 3이 포함 되어 있는가? >> true 반환
+    console.log(e)
+
+    const f = fruits.includes('hero') //fruits 배열에 'hero' 데이터가 들어 있는가? >> false 반환
+    console.log(f)
+
+    // .push()   .unshift() ,, 원본에 수정됨에 주의!
+    numbers.push(5) // 배열의 맨뒤에 삽입
+    console.log(numbers) // [1,2,3,4,5]
+
+    numbers.unshift('ㅎㅎ') // 맨앞에 삽입
+    console.log(numbers) // [0,1,2,3,4,5]
+
+    // .reverse()
+
+    numbers.reverse() // 말그대로 배열을 역순으로 배치 ,, 원본이 수정됨!
+    fruits.reverse()
+
+    console.log(numbers) // [5, 4, 3, 2, 1, 'ㅎㅎ']
+    console.log(fruits) // ['Cherry', 'Banana', 'Apple']
+
+    // .splice() ,,원본수정됨!
+    numbers.splice(2,1) // 인덱스 넘버 2 에서 1개 잘라냄
+    console.log(numbers)
+    numbers.splice(2,0,89) // 인덱스 넘버 2에서 0개 잘라내고 89 숫자를 집어넣기 >> 
+    console.log(numbers) //[5, 4, 89, 2, 1, 'ㅎㅎ']
+    
+
+
+  </script>
+</body>
+</html>
