@@ -34,7 +34,7 @@
     3) let sum = 1+2+3; 일 때 sum의 값? > 6
     4) 변수 num에 어느 수를 넣어도 변수 choice(0~4) 사이의 수가 나오게 하려면 어떤 연산자
       를 사용해야하는지 적으세요
-      let choice = num < 5
+      let choice = num % 5
     */
     
     /* 5번
@@ -49,16 +49,18 @@
     */
     let x = 10
     let y = 20
-    if (x < y) {
-      document.write("6번 1)"+" x가 y보다 작다")
-    }
+    if (x > y) {
+      document.write("<p>" + x + "</p>")
+    } else {
+      document.write("<p>" + y + "</p>")
+    } 
   
     document.write('<p>')
   /*
   2) 점수가 65일 때, 70이상은 합격, 60이상은 보충수업 60미만은 재수강이라 출력하는 조건
   문을 만드세요 
   */
-  let score = 65
+  let score = 59 // >> 재수강
   if (score >= 70) {
     document.write("합격")
   } else if (score >= 60) {
@@ -77,9 +79,10 @@
   */ 
 
   //8번 while문을 사용하여 1~10 까지 출력하세요
-  let q = 1;
+  document.write("8번 정답:" + "<br>")
+  let q = 1; //while 사용시 초기값 설정
   while (q < 11) {
-    document.write("8번 정답: " + q + "<br>")
+    document.write( q + "<br>")
       q++;
   }  
 
@@ -97,7 +100,7 @@
   2) for of를 사용하여 let numArray = [1,2,3,4] 의 요소 값을 출력하세요
   */
   let numArray = [1,2,3,4]
-  for (let value of numArray) {
+  for (value of numArray) {
     document.write(value + " ")
   } 
 
@@ -107,8 +110,8 @@
   */
 
   let flowerArray = ["해바라기","튤립", "장미"]
-  for (let values in flowerArray) {
-    document.write(values + " ")
+  for (values in flowerArray) {
+    document.write(flowerArray[values] + " ")
   }
 
   document.write('<p>')
@@ -117,13 +120,15 @@
   break, continue
   1) while(true) 반복문에서 break;를 이용하여 1~100까지 출력하세요
   */
-  let w = 1
-    while (w < 101) {
-      document.write(w + " ")
-      w++
-      break
-  }
 
+  let countNum = 1;
+  while(true) {
+    document.write(countNum +" ") // 1~ 100 출력
+    countNum++ // 1씩 더함
+    if (countNum == 101) {
+      break
+    }
+  }
 
   document.write('<p>')
   /*
@@ -132,9 +137,10 @@
   */
 
   let three = 3
-  for(let i = 0; i < 51; i++) {
-    if(i%three == 0)
+  for(let i = 0; i <= 50; i++) {
+    if(i%three == 0) {
     continue
+    }
     document.write(i + " ")
   }
   
@@ -171,19 +177,23 @@
       둔각 : 가장 긴 한 변 길이의 제곱 > 다른 변의 길이 제곱 + 다른 변의 길이 제곱
       출력 결과 : 삼각형이 될 수 있습니다. 둔각입니다.
       */
-      let one = 10
+      let one = 10 // 2**3 == 8
       let two = 20
       let thr = 12
       if(two < one+thr) {
-        if((two*two) === (one*one) + (thr*thr)) {
+        document.write("삼각형 O" + '<br>')
+        if((two*two) === (one**2) + (thr*thr)) {
           document.write("삼각형이 될 수 있습니다. 직각입니다")
-        } else if ((two*two) < (one*one) + (thr*thr)) {
+        } else if ((two**2) < (one*one) + (thr*thr)) {
           document.write("삼각형이 될 수 있습니다. 예각입니다")
-        } else if ((two*two) > (one*one) + (thr*thr)) {
+        } else if ((two**2) > (one*one) + (thr*thr)) {
           document.write("삼각형이 될 수 있습니다. 둔각입니다")
         }
+      } else {
+        document.write("삼각형 X")
       }
       
+
       document.write('<p>')
     /*
     2. 키와 몸무게를 170cm, 66kg, 비만도를 계산하고 그 결과에 따라 결과를 출력하는 코드를
@@ -192,9 +202,9 @@
     * BMI 지수 구하는 법 : 몸무게(kg) / 키(m)의 제곱
     */
     
-    let tall = 1.7 //키는 m로 표시 170 => 1.7
+    let tall = 170 //키는 m로 표시 170 => 1.7
     let weight = 66
-    let bmi = weight/(tall*tall)
+    let bmi = weight/((tall/100)**2)
     if(bmi < 18.5) {
       document.write("저체중입니다")
     } else if (18.5 <= bmi < 23 ) {
@@ -251,24 +261,41 @@
     출력하시오.
     (단 요일은 변수로 둔다)
     */
-    let dayTime = "월"
+    let dayTime = "Tue" //1. 월 , 2. 화, 3. 수 , 4. 목, 5. 금, 6. 토, 7.일
 
-    if(dayTime = "월") {
+    if(dayTime = "Mon") {
       document.write("oh my god^^")
-    } else if (dayTime = "화") {
+    } else if (dayTime = "Tue") {
       document.write("Enjoy^^")
-    } else if (dayTime = "수") {
+    } else if (dayTime = "Wed") {
       document.write("oh my god^^")
-    } else if (dayTime = "목") {
+    } else if (dayTime = "Thr") {
       document.write("Enjoy^^")
-    } else if (dayTime = "금") {
+    } else if (dayTime = "Fri") {
       document.write("oh my god^^")
-    } else if (dayTime = "토") {
+    } else if (dayTime = "Sat") {
       document.write("Enjoy^^")
-    } else if (dayTime = "일") {
+    } else if (dayTime = "Sun") {
       document.write("oh my god^^")
+    } else {
+      document.write("그런요일은 없습니다")
     }
 
+
+    document.write('<p>')
+    // swich 로
+    let day = 1  //1. 월 , 2. 화, 3. 수 , 4. 목, 5. 금, 6. 토, 7.일
+    switch (day) {
+      case 1, 3, 5, 7 :
+      document.write("oh my god^^")
+      break
+      case 2, 4, 6 :
+      document.write("Enjoy^^")
+      break
+      default :
+      document.write("'?'요일을 입력하세요")
+    }
+    
     document.write('<p>')
     //반복문
     /*
@@ -278,7 +305,7 @@
 
     let numOne = 8
     let numTwo = 100
-    for(let i = 8; i<100; i++) {
+    for(let i = numOne; i <= numTwo; i++) {
       if (i%2 === 1) {
         document.write(i + ' ')
       }
@@ -301,6 +328,15 @@
     document.write("총합:" + sumT)
 
     document.write('<p>')
+      let startNum1 = 30
+      let sumNum1 = 0
+      for(let i = startNum1; i>0; i--) {
+        document.write(i + " ")
+        sumNum1 += i
+      }
+      document.write("총합" + sumNum1)
+
+    document.write('<p>')
     /*
     3. 5팩토리얼을 값을 구하는 코드를 작성하세요.
     (단, 숫자 5는 변수로 둔다)
@@ -315,6 +351,15 @@
     }
     document.write("5! == " + factorial(5))
 
+    document.write('<p>')
+    
+    let facto = 1
+    let startNumber = 5
+    for (let i = startNumber; i > 0; i--) {
+      facto *= i
+    }
+    document.write(facto + ' ')
+
     /*let num5 = 5
     for(let i = 1; 0 < i <=5; i++) {
       num5 += i
@@ -328,6 +373,31 @@
     4. 가로 세로길이가 4인 정사각형 안에 아래와 같이 숫자를 채워 넣는 코드를 작성하세요.
     (단 숫자 4는 변수로 둔다)
     */
+    let n = 4 // 가로세로 길이
+    let allNum = 1 // 1~ 길이의 제곱까지 1씩 증가 할 수있다
+    //for 문
+    for(let i = 0; i < n; i++) {
+      for(let j = 0; j < n; j++) { 
+        document.write(allNum + " ")
+        allNum++
+      }
+      document.write('<br>')
+    }
+
+
+    document.write('<p>')
+
+    //for if 문
+      for (let i=1; i <= n*n; i++) {
+        document.write(i +' ')
+        if (i%n == 0 ) {
+        document.write('<br>')
+        }
+      } 
+
+
+    document.write('<p>')
+    document.write('<h3>조건문 반복문 혼합</h3>')
 
     //조건문 반복문 혼합
     /*
@@ -357,14 +427,22 @@
     divide(6);
     
     document.write('<p>')
+
+    let num3 = 6
+    for (let i=1; i <= num3; i++) {
+      if (num3 % i === 0) {
+        document.write(i + ' ')
+      }
+    }
+    document.write('<p>')
     
     /*
     3. 두 개의 주사위를 던졌을 때, 두 눈의 합이 6이 되는 모든 경우의 수 출력하는 코드를 작
     성하세요
     */
     
-    for(let i = 1; i <= 6; i++) {
-      for(let j = 1; j <= 6; j++) {
+    for(let i = 1; i <= 6; i++) { // 첫번째 주사위
+      for(let j = 1; j <= 6; j++) { // 두번째 주사위
         if (i+j === 6) {
           document.write(`${i},${j}`+ '<br>')
         }
@@ -376,8 +454,8 @@
     /*
     4. 별 탑 출력 * / ** / *** /****
     */
-    
-    for(let i = 1; i <= 4; i++) {
+    let stars = 5
+    for(let i = 1; i <= stars; i++) {
       document.write("*".repeat(i) + "<br>")
     }
 
