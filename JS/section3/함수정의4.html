@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script>
+      //화살표 함수 실습1
+      let subArrow = (num1,num2) => num1-num2
+  </script>
+</head>
+<body>
+  <script>
+  //함수표현식
+  let hi = function () { //함수 이름X, 매개변수 0개
+    document.write('<p> hello </p>')
+  }; //변수안에 할당하므로 ; 을 붙인다
+
+  let hiName = function (name) {
+    document.write('<p>' + name + ' hello <p>')
+  }; //변수안에 할당하므로 ; 을 붙인다
+
+  hi()
+  // hiName = "다른값" , 다른값을 할당하면 함수가 사라진다
+  hiName('rrr')
+
+  //함수표현식 실습
+  let sub = function (num1,num2) {
+    return num1 - num2
+  } 
+  document.write(sub(5,10))
+
+  //선언식 함수와 함수표현식의 차이점
+  a() //선언식을 사용하면 위치 상관없이 호출 가능
+  //b() // 함수표현식은 정의하기전에 호출 불가능 
+  function a() {
+    document.write('<p>선언식 함수</p>')
+  }
+
+  let b = function () {
+    document.write('<p>함수 표현식</p>')
+  }
+
+  //  선언식 함수와 함수표현식이 블록안과 밖에서 어떻게 사용?
+  if (true) {
+    function innerfunc () {
+      document.write('<p>블록안에 만든 선언식 함수</p>')
+    }
+    let innerfuncNoname = function () {
+      document.write('<p>블록안에 만든 선언식 함수</p>')
+    }
+    innerfunc()
+    innerfuncNoname()
+  }
+  innerfunc()
+  //innerfuncNoname() /변수가 살아있는 동안에 사용이 가능.
+
+  //화살표 함수 여러줄 작성할 때
+  let hiA = () => {
+    document.write('<p> hello~')
+  }
+  hiA()
+  //화살표 함수 한 줄 작성 : return 으로 값 출력
+  let hiReturn = () => "<p>안녕</p>"
+
+  /*
+  선언식
+    function hiA () {
+      document.write('<p> hello~')
+  }
+
+  표현식
+    let hiA = function () {
+      document.write('<p> hello~')
+  }
+  */
+
+  //매개변수가 하나인 화살표 함수
+  let numToString = n => String(n)  
+
+  //매개변수가 여럿사용시 () 사용
+  let add = (a,b) => a+b
+
+  //화살표 함수 실습1
+  console.log(subArrow(5,2))
+
+  //함수 실습
+  function ask(q,yes, no) { //q = 질문(문자열)
+    if(confirm(q)) {
+      yes() // 함수를 입력받아 사용 
+      // yes 라는 매개변수안에 익명함수가 들어와서 매개변수이름으로 함수호출가능(이때 ()붙여서 함수호출)
+    } else {
+      no() // 함수를 입력받아 사용
+    }
+  }
+  ask(
+    "동의하십니까?",
+    () => alert('동의했습니다'),
+    () => alert('미동의했습니다')
+    /*
+    function() { alert('동의했습니다') }, //함수의 내용을 인수로 전달
+    function() { alert('미동의했습니다') }
+    */
+  )
+  </script>
+  
+</body>
+</html>
