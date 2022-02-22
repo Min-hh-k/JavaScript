@@ -43,7 +43,6 @@
       return result
     }
     //함수 실습5
-
     function avrg(array) { 
       let avrgNum = 0
       let sumNum = 0
@@ -78,13 +77,13 @@
       }
 
       function numPrint(a, ...b) { //매개변수 2개, b는 나머지 매개변수(배열로)
-        document.write('<p>' + a + '<p>')
-        document.write('<p>' + b[0] + '<p>') // 배열로 인덱스 접근가능
+        document.write('<p>' + a + '<p>') // 1
+        document.write('<p>' + b[0] + '<p>') // 2부터 0123==[a=1,2,3,4,5]배열로 인덱스 접근가능 b[2]
       }
       //arguments
       function numArgu(a) {
         document.write('<p>' + a + '<p>')
-        document.write('<p>' + arguments[1] + '<p>') //arguments 는 모든 인수를 참조하여 값을 들고온다
+        document.write('<p>' + arguments[3] + '<p>') //arguments 는 모든 인수를 참조하여 값을 들고온다
       }
 
       //함수실습 7 arguments를 사용하여 인수를 더하는 함수
@@ -123,12 +122,13 @@
     let numArray = [30, 60, 40, 60, 20]
     document.write('<br>'+ avrg(numArray))
     console.log(average(numArray)) // 42
-    console.log(solution(numArray))
+    console.log(solution(numArray)) // 42
     //함수 실습6
-    document.write('<br>' + add(5))
+    document.write('<br>' + add(5,6))
+    document.write('<br>' + add(5,0))
     document.write(numPrint(1,2,3,4,5))
     //arguments
-    numArgu(2,7)
+    numArgu(2,7,5,6,9,78)
     //함수 실습7
     document.write(addAll(5,4,3,2,1))
   </script>

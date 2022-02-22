@@ -29,7 +29,7 @@
   let sub = function (num1,num2) {
     return num1 - num2
   } 
-  document.write(sub(5,10))
+  document.write(sub(5,10)) //-5
 
   //선언식 함수와 함수표현식의 차이점
   a() //선언식을 사용하면 위치 상관없이 호출 가능
@@ -41,7 +41,7 @@
   let b = function () {
     document.write('<p>함수 표현식</p>')
   }
-
+  b()
   //  선언식 함수와 함수표현식이 블록안과 밖에서 어떻게 사용?
   if (true) {
     function innerfunc () {
@@ -63,7 +63,7 @@
   hiA()
   //화살표 함수 한 줄 작성 : return 으로 값 출력
   let hiReturn = () => "<p>안녕</p>"
-
+  hiReturn()
   /*
   선언식
     function hiA () {
