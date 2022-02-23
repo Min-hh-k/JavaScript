@@ -8,6 +8,20 @@
 </head>
 <body>
   <script>
+
+    /*
+      <지역 변수(local variable)>
+      지역 변수란 함수 내에서 선언된 변수를 가리킵니다.
+
+      이러한 지역 변수는 변수가 선언된 함수 내에서만 유효하며, 함수가 종료되면 메모리에서 사라집니다.
+
+      함수의 매개변수 또한 함수 내에서 정의되는 지역 변수처럼 동작합니다.
+
+      <전역 변수(global variable)>
+      전역 변수란 함수의 외부에서 선언된 변수를 가리킵니다.
+
+      이러한 전역 변수는 프로그램의 어느 영역에서나 접근할 수 있으며, 웹 페이지가 닫혀야만 메모리에서 사라집니다.
+*/
     if(true) {
     let innernum = 10 //let 은 블록안에서 작성되면 블록이 끝나면 사라진다
     console.log(innernum)
@@ -35,6 +49,13 @@
 
       for (let checkCount = 1; checkCount <= maxCount; checkCount++) {
         document.write(maxCount + '중의 ' + checkCount + '<br>')
+      }
+
+      let maxCounts = 10
+      for (let i = 0; i < 10; i++) {
+        let checkCounts = 1
+        checkCounts += i
+        document.write('<br>' +maxCounts+ '중의' + checkCounts + '<br>')
       }
 
     //실습2

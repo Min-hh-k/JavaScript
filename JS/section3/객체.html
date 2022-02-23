@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    let puppy = {
+      //속성 key: value ,
+      //속성값은 문자열, 숫자형 뿐만 아니라 객체(Object)도 들어 올 수 있다
+      name:'초코',
+
+      //메소드
+      //익명함수로 들어오기에 화살표 함수로도 올 수있다.
+      eat: function () {
+        document.write('<p>밥을 먹습니다</p>')
+      },
+      namePrint : function () {
+        //this 를 이용해서 속성값 또는 메소드를 참조 가능,, this > puppy
+        console.log(this.name + '입니다')
+      }
+    };
+
+    //new Object() 객체생성
+    let tree = new Object() //빈 객체 생성
+    tree.height = 200  //속성갑 추가
+    tree.type = "은행나무"
+    tree.fall = function () { //매서드 추가
+      return "나뭇잎이 노랗게 변했습니다"
+    }
+
+
+    //실습1
+    let person = {
+      name: "홍길동",
+      address: "부산",
+      intro : function() {
+        return this.name+"입니다." + this.address + "에 거주중입니다"
+      }
+    }
+    //console.log(person.name +'입니다. '+ person.address + '에 거주중입니다')
+
+    //실습2
+    let myCookie = {
+      shape: "원",
+      flavor: "초코",
+      intro: function () {
+        return this.shape +"모양의 "+ this.flavor +"맛입니다"
+      },
+      change: function(shape) {  //shape 매개변수를 통해서 값을 받아옴
+        this.shape = shape //값을 속성에 할당할 수 있다
+      }
+    }
+    console.log(myCookie.intro()) //원모양의 초코맛입니다
+
+  </script>
+</body>
+</html>

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    //중첩함수
+    function f() { //감싸고 있는 함수 - 상위 함수
+      let value = 123
+      function g() { //함수안에 생성된 함수
+        alert(value) // 상위함수에서 value 값 접근가능
+      }
+      g() // 내부 함수 호출
+    }
+    f() //함수 출력
+
+
+    //클로저
+    //외부 변수를 기억하고 접근할 수 있는 함수(값은 저장되어 사용가능)
+    let globalCount = 1
+    function countG() {
+      globalCount++ //== globalCount += 1
+    }
+    console.log(countG())
+
+    //클로저 함수
+    function countL () {
+      let localCount = 0 // 이 함수를 전역 변수처럼 사용
+      return function () {
+        return localCount += 1
+      }
+    }
+    
+    //클로저 함수를 사용하기 위한 함수
+    let countTest = countL()
+
+    alert(countTest()) // 1
+    alert(countTest()) // 2
+    alert(countTest()) // 3
+
+
+    //실습1
+    function add(a,b) {
+      let sum = a+b
+      function printNum() {
+        document.write(`합 : ${sum} <p>`)
+        console.log(sum)
+      }
+      printNum()
+    }
+    add(2,9) // 11
+
+
+    
+    // 람다형식, function addNum() {} 함수에 한번더 ( ) (); 감싸기 
+    let Ramda = ( function addNum( ) {
+      return "람다형식"
+    } ) ();
+
+    // .p134 클로저의 람다함수
+    let count = ( function () {
+      let localCount = 0 
+      return function () {
+        return localCount += 1
+      }
+    } ) ();
+    console.log(count()) //1씩 증가 
+
+
+  </script>
+</body>
+</html>
