@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    //재귀함수
+    for(let i = 0; i < 5; i++) {
+      document.write('<p>반갑습니다</p>')
+    }
+    //재귀함수
+    function hi(n) { //n은 반복할 숫자
+      if(n == 0) {
+        return //undefined
+      }
+      else if (n > 0) {
+        document.write('<p>안녕하세요</p>')
+      return hi(n-1)
+      }
+    }
+    hi(5)
+
+    let sumFor = 0
+    for (let i =0; i <= 5; i++) {
+      sumFor += i
+    }
+    document.write(`sumFor: ${sumFor}</p>`)
+
+
+    function sum(n) {
+      if (n > 0) {
+        console.log(n)
+        return n += sum(n-1) //계산식
+      } else {
+        return 0 // 종료
+      }
+    }
+    document.write(sum(5)+'<p>')
+
+    //실습(팩토리얼-재귀함수)
+    function fac(n) {
+        if(n <= 1){ 
+        return n
+        }                                           
+        return n * fac(n-1)
+    }
+    document.write(fac(5) +'<p>')
+
+    function facto(n) {
+        if (n > 1){ 
+          return n *= facto(n-1)
+        } else {                                   
+          return 1
+        }
+    }
+    document.write(facto(5) +'<p>')
+  </script>
+</body>
+</html>
