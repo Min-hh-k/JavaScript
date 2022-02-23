@@ -21,7 +21,7 @@
 
     //클로저
     //외부 변수를 기억하고 접근할 수 있는 함수(값은 저장되어 사용가능)
-    let globalCount = 1
+    let globalCount = 0
     function countG() {
       globalCount++ //== globalCount += 1
     }
@@ -30,7 +30,7 @@
     //클로저 함수
     function countL () {
       let localCount = 0 // 이 함수를 전역 변수처럼 사용
-      return function () {
+      return function () { // return 을 통해 익명함수를 되돌려줌
         return localCount += 1
       }
     }

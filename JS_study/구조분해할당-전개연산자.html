@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    // 구조 분해 할당(Destructuring assignment)
+    // 비구조화 할당
+    
+    const user = {
+      name: 'hero',
+      age: 85,
+      email: 'alszn2222@gmail.com'
+    }
+    const {name, age, email, address = 'korea' } = user //내용을 변수로 만들어 꺼내 사용, address = 'korea' 처럼 할당가능
+    // E.g, user.address / user['address']
+
+    console.log(`사용자의 이름은 ${name}입니다.`)
+    console.log(` ${name}의 나이는 ${age}입니다.`)
+    console.log(`${name}의 이메일 주소는 ${email}입니다.`)
+    console.log(`${name}의 집 주소는 ${address}입니다.`)
+    console.log(address) //korea  
+
+    const fruits = ['Apple','Banana','Cherry']
+    const [a,b,c,d] = fruits
+    console.log(a,b,c,d) // Apple Banana Cherry undefined
+
+
+    //전개 연산자(Spread) ... 
+
+    const fruit = ['Apple','Banana','Cherry', 'Orange']
+    console.log(fruit)
+    console.log(...fruit) //console.log('Apple','Banana','Cherry')
+    
+
+    function toObject (a, b, ...c) { // ...c 는 'Cherry' 'Orange' 나머지연산자 전개(rest parameter)
+      return {
+        a: a, 
+        b: b,
+        c: c // c 하나만 써도 가능(속성 이름과 변수 이름이 같으면)
+      }
+    }
+    // === const toObject = (a, b, ...c) => ({a, b, c})
+    console.log(toObject(...fruit))
+
+  </script>
+</body>
+</html>
