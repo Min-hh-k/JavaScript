@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+
+    //생성자 함수 
+    //객체이름 대문자로 function Dog (a,b) { this.속성1 = a, this.속성2 = b, this.메소드 = function() {}}
+    //let 객체 = new 객체이름 ()
+    function Dog (name, age) {
+      this.name = name,
+      this.age = age,
+      this.intro = function () {
+        return `${this.age}살 입니다.`
+      }
+    } 
+
+    let myDog = new Dog("삼식", 5)
+    let yourDog = new Dog("초코", 2)
+
+
+    //실습1
+    function Student (name,score) {
+      this.name = name,
+      this.score = score,
+      this.study = function () {
+        this.score += 10
+      }
+      this.showScore = function () {
+        return this.score
+      }
+    }
+    let myStudent = new Student("토일",70)
+    let yourStudent = new Student("웻보이",80)
+
+    //실습2
+    function BusCard (money) {
+      this.money = money,
+      this.charge = function (plusMoney) {
+        return this.money += plusMoney
+      },
+      this.takeBus = function () {
+        if (this.money < 1500) {
+          return "잔액이 부족합니다"
+        } else {
+          return this.money -= 1500
+        }
+      },
+      this.showMoney = function () {
+        return this.money
+      }
+    }
+
+    let myBusCard = new BusCard(1500)
+    let yourBusCard = new BusCard(2000)
+  </script>
+</body>
+</html>
