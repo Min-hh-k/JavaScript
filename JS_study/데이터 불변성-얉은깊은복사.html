@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    /*
+    데이터 불변성(Immutability)
+    원시 데이터: String , Number, Boolean, undefined, null
+    참조형 데이터: Object, Array, Function
+    */
+    
+    //얉은 복사(Shallow copy),
+    const user = {
+      name: 'hero',
+      age: 75,
+      emails: ['alszn2222@gmail.com']
+    }
+    const copyUser = Object.assign({},user) //복사 // ==  const copyUser = {...user} // lodash
+    user.age = 22
+    console.log('user', user)
+    console.log('copyUser', copyUser)
+
+    console.log('------')
+    console.log('------')
+    //  깊은 복사(Deep copy)
+    /*
+    터미널, 
+    npm i lodash
+    npm run dev
+    문서 상단에 import _ from 'lodash'
+    const copyUser = _.cloneDeep(user)  >> 깊은 복사
+    */
+    user.emails.push('neo@zilld.com') //user.emails 는 0,1 두개  ,, copyUser 은 기본emails 0  1개
+    console.log(user.emails === copyUser.emails)
+    console.log('user', user)
+    console.log('copyUser', copyUser)
+  </script>
+</body>
+</html>
