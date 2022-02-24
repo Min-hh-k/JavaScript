@@ -58,6 +58,74 @@
 
     let myBusCard = new BusCard(1500)
     let yourBusCard = new BusCard(2000)
+
+    //실습3
+    function Message(name, content, time) {
+      this.name = name,
+      this.content = content,
+      this.time = time, // 매개변수 부분 , time 제거 후 new Date(), 사용 가능
+      this.modifyMessage = function (message) {
+        this.content = message
+      },
+      this.showMessage = function () {
+        return name + "님께서"+ content + "를" + time + "에 보냈습니다."
+      }
+    }
+
+    let myMessage = new Message('기리보이', '반갑습니다', '02:24')
+    let yourMessage = new Message('PH-1', '안녕하세요', '17:25')
+
+    //실습4
+    //for ... in 루프 실습
+    for (let x in yourMessage) {
+      console.log(x+": "+ yourMessage[x]) //yourMessage['name']
+    }
+
+    let string =''
+    for (let x in myBusCard) {
+      string = string + x + ": " + myBusCard[x] + '.'
+    }
+    console.log(string)
+
+  // 객체를 속성으로 갖는 객체
+  let memo = {
+  title : '오늘할 일', // title 속성의 문자열 값
+  todo : { // todo 속성에 객체 값 //todo 객체는 3개의 배열을 가짐
+    morning : ['청소','준비'], 
+    afternoon : ['수업'],
+    evening : ['정리','독서']
+    }
+  }
+  console.log(memo.todo.evening[1]) // 독서
+
+  //실습5
+  //동물 진료 차트
+  /*
+  생성자 함수 : AnimalChart(name,kind,age)
+  속성 : name, kind, age, sickness, condition
+  메소드 : receive function(sickness, condition), confirm function()
+  */
+  let AnimalChart = function (name, kind, age) {
+    this.name = name;
+    this.kind = kind;
+    this.age = age;
+    this.sickness = '';
+    this.condition = '';
+    this.receive = function (sickness, condition) {
+      this.sickness = sickness;
+      this.condition = condition;
+      };
+    this.confirm = function() {
+      for (let c in this) { //this 는 생성된 객체 == AnimalChart
+        if ( !(c == 'receive' || c == 'confirm') ) { //receive 와 condition 이 아닐때
+          console.log(this[c])
+        }
+        
+      }
+    }
+  }
+  let myPuppy = new AnimalChart("초코","요크셔테리어",3)
+
   </script>
 </body>
 </html>
