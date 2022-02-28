@@ -20,7 +20,7 @@
 2. 표현식 함수(익명함수)
 아래의 선언적 함수를 표현식으로 바꾸세요
 1) function test() { console.log("테스트 함수입니다.") }
-    let test = function () {console.log("테스트 함수입니다.")}
+    let test1 = function () {console.log("테스트 함수입니다.")}
 
 
 3. 화살표식 함수
@@ -33,7 +33,7 @@
     4. 재귀 함수
 빈 공간을 채우세요.
 1) 숫자 1+N 까지의 숫자의 합을 구하는 재귀함수입니다
-function PlusPlus( n) {
+function PlusPlus(n) {
 if(n == 0) {
 return 0;
 }
@@ -43,11 +43,11 @@ return n +=  ________ ;  >> PlusPlus(n-1);
 }
 
 5. 함수의 호출
-다음 중 함수의 호출 방법으로 옳지 않은 것은?  (2)
+다음 중 함수의 호출 방법으로 옳지 않은 것은?  (4)
 (1) 함수를 바로 호출 할 때 함수이름에 ()를 붙인다
 (2) 함수의 내용을 호출할 때 함수의 이름만 사용한다.
 (3) 함수의 인자 값으로 함수를 보낼 수 있다.
-(4) 함수의 인자 값으로 함수를 보낼 때 함수이름() 로 보내야한다
+(4) 함수의 인자 값으로 함수를 보낼 때 함수이름() 로 보내야한다 //인자값
 
 6. 객체
 1) 아래 객체에 메소드를 추가하세요
@@ -79,44 +79,57 @@ calculate(<무게>) 무게를 기반으로 가격을 계산합니다.
 예: product.calculate(200)을 입력하면, 100g * 2 = 200g이므로 '3380원'을 출력합니다.
     */
     //4번
-    function PlusPlus( n) {
-    if(n == 0) {
-    return 0;
+    function PlusPlus(n) {
+      if(n == 0) {
+        return 0;
+      }
+      else {
+        return n += PlusPlus(n-1);
+      }
     }
-    else {
-    return n += PlusPlus(n-1);
-    }
-    }
+    console.log('4번, 재귀함수, PlusPlus(n-1)')
     console.log(PlusPlus(7)) //28
 
     //6번
     let myDog = {
-    name: "Happy",
-    friends: ["Mini", "Choco"],
-    bark : function () {
-      return "bow-wow"
-    }
+      name: "Happy",
+      friends: ["Mini", "Choco"],
     };
+    myDog.bark = function () {
+        return "bow-wow"
+      }
 
     //7번
     let book = new Object()
       book.name = "Nature of Code",
-      book.price = "30000"
+      book.price = "30000원"
       book.author = "다니엘 쉬프만"
       book.isbn = "9788968481901"
       book.pages = "620페이지" 
     
+      let book2 = {
+        title : "Nature of Code",
+        pay : "30000원",
+        author : "다니엘 쉬프만",
+        isbn : "9788968481901",
+        page : "620p",
+      }
 
     //8번 생성자 함수
-    function Product (name,weight,price) {
+    //100g당 pay 값 구하기.. pay / weight * 100
+    function Products (name,weight,pay) {
       this.name = name;
-      this.weight = '';
-      this.price = '';
-      this.calculate = function (weight, price) {
-        return `${weight*=price}`
-
+      this.weight = weight;
+      this.pay = pay;
+      this.calculate = function (g) {
+        return `${g * (Math.round(this.pay / this.weight ))}` //들고온 무게와 금액 계산
       }
     }
+    let myProduct = new Products("돼지고기",100,1690)
+    console.log("8번, 생성자함수");
+    console.log(myProduct);
+    
+
 /*
 1. 아래 함수를 선언식 함수로 작성하고 console에서 호출하세요
 º 함수 이름: power
@@ -148,11 +161,26 @@ calculate(<무게>) 무게를 기반으로 가격을 계산합니다.
 
 //함수 1번
 function power(a,b) {
-  if (a){
+  if (a) {  
     a*a
   }
   return Math.pow(a,b)
 }
+
+function powers(n,m) { // m 값이 있을때 true
+  if (m) {
+    let pow = 1
+    for (let i=0; i < m; i++) {
+      pow *= n
+    }
+    return pow
+  } else { // m == undefined
+    return n * n
+  }
+}
+console.log('함수문제 1번')
+console.log(powers(2)) //4
+console.log(powers(2,5)) //32
 
 //2번
 let multiply = function () {
@@ -162,11 +190,27 @@ let multiply = function () {
   }
   return multi
 }
+console.log('함수문제 2번')
+console.log(multiply(2,3,4)) //24
 
 //3번
-function meetAt() {
-  if (dd) {}
+function meetAt(year, month, day) {
+  if (month == undefined) { //year 값이 있고, month 와 day 값이 없다
+    return `${year}년`
+  }
+  else if (day == undefined) { //year 값이 있고, month의 값이 있는지 없는지 모른다
+    return `${year}년${month}월`
+  }
+  else { // 그 외 year 와 month 와 day 의 값이 있음
+    return `${year}년${month}월${day}일`
+  }
 }
+let myMeetAt = new meetAt
+console.log('함수문제 3번')
+console.log(meetAt(2022))
+console.log(meetAt(2022,10))
+console.log(meetAt(2022,10,11))
+
 
 
 /*
@@ -206,16 +250,18 @@ product.name을 buyList배열의 메소드 push()를 사용해서 추가 }
 
 //객체 1번 // myStorage.car.inside.glovebox
 const myStorage = {
-car: {
-inside: {
-glovebox: "maps",
-passengerseat: "crumbs"
-},
-outside: {
-trunk: "jack"
-}
-}
+  car: {
+    inside: {
+      glovebox: "maps",
+      passengerseat: "crumbs"
+    },
+    outside: {
+      trunk: "jack"
+    }
+  }
 };
+console.log('객체 3문제')
+console.log(myStorage.car.inside.glovebox)
 
 //2번
 
@@ -223,16 +269,38 @@ function Product (name,pay) {
   this.name = name;
   this.pay = pay;
   this.keep = function() {
-    return `${name}을 보관했습니다`
+    return `${this.name}을 보관했습니다`
   }
   this.getPay = function () {
-    return `${pay}의 숫자값을 return`
+    return `${this.pay}`
   }
 }
+let myproduct1 = new Product('book',6000)
+console.log(myproduct1)
+console.log(myproduct1.getPay()) //6000
 
-console.log(Product(book,6000))
+let myproduct2 = new Product('pencil',2000) 
+console.log(myproduct2)
+
+let myproduct3 = new Product('hat',8000) 
+console.log(myproduct3)
 
 //3번
+function user(id, money) {
+  this.id = id;
+  this.money = money;
+  this.buyList = [];
+  this.charge = function (plusMoney) {
+    return this.money += plusMoney
+  };
+  this.buy = function (product) {
+    return this.money-product.getPay();
+    buyList.push(product.name)
+  };
+}
+
+let user1 = new user("Harry", 10000)
+console.log(user1.buy(myproduct1))
 
 /*
 1. 일반함수
@@ -279,17 +347,53 @@ John 0120331254
 profileBook[0] 입력하여 아래의 값이 제대로 들어가 있는지 확인해주세요.
 { name : “Harry”, phoneNumber : “0543236543” }
 */
-//1번
+console.log('응용3문제');
+//1번 ,, 유클리드 호제법
+let correct = (a,b) => {
+  let gcd = (a,b) => {
+    if (b === 0) return a; // 나누어 지면 a리턴 (a>b)
+    return gcd(b, a % b); // 나누어지지 않는다면 b와 a%b로 다시 나눈다
+    };
+  let lcm = (a,b) => (a * b) / gcd(a,b) // 두수의 곱을 최대공약수로 나눈다
+  return console.log(
+    `최대공약수는:${gcd(a,b)}, 최소공배수는:${lcm(a,b)}`)
+}
 
+function llcm(a,b) { //최소공배수만
+  let n=1
+  while(n*b % a != 0){ // 1~a 값과 b값을 곱해 a로 나누었을때 나머지가 0이 아니라면 반복
+    n++
+  }
+  return n*b
+}
+correct(8,16)
 //2번
-
+let myProfile = {
+  name: '김개발',
+  address: {
+    email: 'geabal@gmail.com',
+    home: '위워크'
+  },
+  myFavorite: {
+    food: [{
+      name: '샐러드',
+      price: 3500
+      }, {
+      name: '삼겹살',
+      price: 15000
+      }],
+    hobby: ['축구']
+  }
+}
+function getAnswer() {
+  return console.log(myProfile.myFavorite.food[0].name)
+}
+getAnswer()
 //3번
 let Profile = function (name,phoneNumber) {
   this.name = name;
   this.phoneNumber = phoneNumber;
-  this.calling = function () {
-    return `${name}에게 전화하고 있습니다.`
-  }
+  this.calling = () => `${name}에게 전화하고 있습니다.`
 }
 let profileBook = []
 let harry = new Profile('Harry','0543236543')
@@ -298,6 +402,40 @@ let john = new Profile('John','0120331254')
 profileBook.push(harry)
 profileBook.push(sherlock)
 profileBook.push(john)
+console.log(profileBook[0])
+
+
+/*
+내장객체 응용
+1. String, Math,floor(소수점 아래 버림)
+인수로 글자를 입력하면 가운데 글자를 출력하는 printCenter함수를 만드세요.
+이때, 문자열의 길이가 짝수일때 2개, 출력, 홀수일때 1개 출력
+string.length : 문자열 길이
+string.charAt(n) : 문자열의 n번째 위치에있는 문자를 반환
+string.slice(n,m) : 문자열의 n번째부터 m-1위치의 문자까지 반환
+
+> printCenter('hi')
+'hi'
+> printCenter('hello')
+'1'
+> printCenter('study')
+'u'
+> printCenter('center')
+'nt'
+
+
+2. Array.length Math.random(0~1이하의 난수)
+넌센스 Quiz 만들기.
+아래와 같이 quizArray 안에 객체로 문제와 답을 넣은 후
+문제와 출력횟수를 넣으면 랜덤으로 문제를 출력하는 randomQuiz 함수를 만드세요.
+문제의 답은 prompt로 입력받고, 결과는 마지막에 console로 알려줍니다.
+동일한 문제가 여러 번 나와도 상관없습니다.
+*/
+console.log('내장객체응용')
+//1번
+
+
+//2번
   </script>
 </body>
 </html>
