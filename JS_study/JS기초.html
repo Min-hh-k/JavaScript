@@ -75,9 +75,7 @@ console.log(a ? '참' : '거짓') */
 
 //if 조건문
 
-import random from './getRandom'
-
-const a = random()
+const a = Math.random()
 
 if (a===0) {
   console.log('a is 0')
@@ -316,17 +314,19 @@ boxEl.classList.add('active');
 let isContains = boxEl.classList.contains('active')
 console.log(isContains); //true
 
+/*
 boxEl.classList.remove('active');
 let isContains = boxEl.classList.contains('active')
 console.log(isContains); //false
+*/
 
-const a = "hello~"
+const ab = "hello~"
 //split : 문자를 인수 기준으로 쪼개서 배열로 반환
 // reverse : 배열을 뒤지빅.
 // join : 배열을 인수 기준으로 문자로 병합해 반환.
 const b = a.split('').reverse().join(''); // 메소드 체이닝(체인처럼 연결)
 
-console.log(a); // hello~
+console.log(ab); // hello~
 console.log(b); // ~olleh
 
 
