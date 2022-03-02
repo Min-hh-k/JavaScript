@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    //타이머확인
+    let time = 0
+    let funcid = setInterval(
+      function () {
+        time++;
+        document.write(`${time}초 `);
+      },1000
+    );
+    console.log("실행완료")
+    setTimeout(() => clearInterval(funcid), 5000) //5초 뒤 멈춤, 함수를 넘겨줄땐 익명함수로 넘겨주기
+  
+    /*
+    function platform() {
+      confirm('운영체제를 알려드릴까요?')
+      return navigator.platform + "입니다"
+  }
+  console.log(platform())
+  */
+
+  let check = confirm('운영체제를 알려드릴까요?')
+    if (check) {
+      console.log(`${navigator.platform}입니다`)
+    } 
+    else {
+      console.log("취소했습니다")
+    }
+  </script>
+</body>
+</html>

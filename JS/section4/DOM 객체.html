@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>제목</title>
+</head>
+<body>
+  <a href="javascript:void(0)">링크</a>
+  <p class="class-name">단락입니다</p>
+
+  <h1 id="title">제목</h1>
+  <div class="class">
+    <ul>
+      <li>첫째</li>
+      <li>둘째</li>
+      <li>셋째</li>
+      <li>넷째</li>
+    </ul>
+  </div>
+
+  <form id="form">
+    <input type="text">
+    <input type="submit" value="전달">
+  </form>
+
+<script>
+  let classElement = document.querySelector('.class-name');
+  classElement.innerHTML = '클래스를 통해 수정된 내용'
+
+  document.querySelector('#title').innerHTML = '수정함'
+
+  let liList= document.querySelectorAll('.class li'); // NodeList : 접근방법은 배열과 동일 
+  for (let i = 0; i < liList.length; i++) {
+    liList[i].innerHTML = "한번에 수정"
+}
+
+  let aElement = document.querySelector('a');
+  aElement.href = 'https://daum.net';
+
+  document.querySelector('#form input').disabled = true; 
+
+  document.querySelector('.class-name').style.backgroundColor = 'yellow';
+  document.querySelector('#title').style.textDecoration = 'line-through';
+
+  //let liList = document.querySelectorAll('.class li')
+  for (let i = 0; i < liList.length; i++) {
+    liList[i].style.color = "blue"
+}
+
+  let ulElement = document.querySelector('ul')
+  console.log(ulElement.childNodes)   //자식 노드
+  console.log(ulElement.parentNode)   //부모 노드
+  //console.log(liList[0].childNodes[0].nodeValue) = 'nodeValue' // 첫번째 li == nodeValue
+
+
+  //1번 h1 태그 찾은 후 childNodes 로 nodeValue 값은?
+  let hh1 = document.querySelector('h1');
+  console.log(hh1.childNodes[0].nodeValue) 
+
+  // 2번 li 태그 찾은 후 parentNode 로 ul 을 찾은 후 nextElementSibling 이용하여 다음 형제 요소는?
+  //let liList = document.querySelectorAll('.class li') 가져왔음
+  console.log(liList[0].parentNode.nextElementSibling) 
+
+  //3번 ul 태그를 찾은 후 firstChild 의  nextSibling 의 값은??
+  let ul = document.getElementsByTagName('ul') 
+  console.log(ul[0].firstChild.nextSibling);
+</script>
+
+</body>
+</html>
