@@ -57,15 +57,35 @@
 
   //1번 h1 태그 찾은 후 childNodes 로 nodeValue 값은?
   let hh1 = document.querySelector('h1');
-  console.log(hh1.childNodes[0].nodeValue) 
+  console.log(hh1.childNodes[0].nodeValue) //수정함
 
-  // 2번 li 태그 찾은 후 parentNode 로 ul 을 찾은 후 nextElementSibling 이용하여 다음 형제 요소는?
+  //2번 li 태그 찾은 후 parentNode 로 ul 을 찾은 후 nextElementSibling 이용하여 다음 형제 요소는?
   //let liList = document.querySelectorAll('.class li') 가져왔음
-  console.log(liList[0].parentNode.nextElementSibling) 
+  console.log(liList[0].parentNode.nextElementSibling) //null
 
   //3번 ul 태그를 찾은 후 firstChild 의  nextSibling 의 값은??
   let ul = document.getElementsByTagName('ul') 
-  console.log(ul[0].firstChild.nextSibling);
+  console.log(ul[0].firstChild.nextSibling); // li
+
+
+  //4번
+  console.log(ul[0].nodeName) // UL
+  console.log(hh1.firstChild.nodeValue = 'firstChild.nodeValue 로 값이 수정됨')
+
+  let pElement = document.createElement('p');
+  pElement.innerHTML = "깂을 추가합니다";
+  console.log(pElement) // <p>값을 추가합니다</p>
+
+  let atrr = document.createAttribute("style");
+  atrr.value = "color : red";
+  pElement.setAttributeNode(atrr);
+  document.querySelector(".class").appendChild(pElement);
+
+  document.querySelector('h1').setAttributeNode(atrr.cloneNode(true));
+
+  liList[3].remove(); // li 의 마지막 줄 인덱스[3] 제거
+
+  pElement.removeAttribute("style"); // 추가한 p태그 빨간색 제거
 </script>
 
 </body>
