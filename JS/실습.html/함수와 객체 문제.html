@@ -396,6 +396,15 @@ let Profile = function (name,phoneNumber) {
   this.calling = () => `${name}에게 전화하고 있습니다.`
 }
 let profileBook = []
+profileBook.push(new Profile("Harry", 0543236543))
+profileBook.push(new Profile("Sherlock", 0994372684))
+profileBook.push(new Profile("John", 0120331254))
+console.log(profileBook[0])
+console.log(profileBook[1])
+//== profilebook[0] = new Profile(Harry, 0543236543)
+//== let myProfile = new Profile(Harry, 0543236543) 
+
+/*
 let harry = new Profile('Harry','0543236543')
 let sherlock = new Profile('Sherlock','0994372684')
 let john = new Profile('John','0120331254')
@@ -403,6 +412,7 @@ profileBook.push(harry)
 profileBook.push(sherlock)
 profileBook.push(john)
 console.log(profileBook[0])
+*/
 
 
 /*
@@ -433,9 +443,54 @@ string.slice(n,m) : 문자열의 n번째부터 m-1위치의 문자까지 반환
 */
 console.log('내장객체응용')
 //1번
+//글자길이가 5일때 2로 나누면 2.5, 인덱스 값은 항상 정수
+//가운데 값 인덱스 위치 2 [01234]
+
+
+function printCenter(string) {
+  if (string.length % 2 == 1) { //문자열의 길이가 홀수 일 때
+  let centerIndex = Math.floor(string.length/2)
+  return string.charAt(centerIndex)
+  } else {
+  //문자열의 길이가 짝수 일 때
+  let centerIndex = Math.floor(string.length/2)
+  //두 수중에 마지막 자리의 위치를 알아냄, 첫번째 자리의 위치는 1을 뺀다
+  return string.slice(centerIndex-1,centerIndex+1)
+  }
+}
+
+console.log(printCenter('hi')) // hi
+console.log(printCenter('hello')) // ;
+console.log(printCenter('study')) // u
+console.log(printCenter('center')) // nt
 
 
 //2번
+
+let quizArray = [
+  { quiz: "왕이 넘어지면", answer:"킹콩"},
+  { quiz: "오리가 얼면", answer:"언덕"},
+  { quiz: "한국의 수도는", answer:"서울"},
+  { quiz: "5+9", answer:"14"},
+];
+
+  function randomQuiz( quizArray, count) {
+    //문제를 count만큼 출력 : quizArray[0].quiz 
+    //count만큼 출력 : 반복(for)
+    //랜덤하게 출력 : 인덱스값이 랜덤 quizArray[randomNum].quiz
+
+    let score = 0;
+    let randomNum = 0;
+
+    for(let i = 0; i < count; i++) {
+      randomNum = Math.floor(Math.random() * quizArray.length);
+      let answer = prompt( quizArray[randomNum].quiz );
+      if(answer == quizArray[randomNum].answer) {
+      score++
+      }
+    }
+    return `${count}개 중에서 ${score}개 정답!`;
+  }
   </script>
 </body>
 </html>
