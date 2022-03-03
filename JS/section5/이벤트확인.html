@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script>
+    window.onload = function () {
+      // window 객체가 load 되면 아래 내용 실행
+      const p = document.querySelector('p');
+      p.textContent = "수정완료"
+    }
+    
+  </script>
+</head>
+<body>
+  <p onclick="alert('문자열을 클릭')">단락입니다</p>
+
+  <p id="color" onmouseover="color()" onmouseleave="color2()">마우스를 올리면 색이 바뀐다</p>
+
+  <input type="text" id="title" onfocus="focusIn()" onblur="focusOut()" onchange="backgroundColorChange()"> : onfocus와 onblur  
+  <script>
+    function color() {
+      const p = document.querySelector('#color')
+      p.style.color = "red"
+    }
+    function color2() {
+      const p = document.querySelector('#color')
+      p.style.color = "black"
+    }
+
+    function focusIn() {
+      const h1 = document.querySelector('#title');
+      h1.style.color = "green"
+    }
+
+    function focusOut() {
+      const h1 = document.querySelector('#title');
+      h1.style.backgroundColor = "yellow"
+    }
+  </script>
+</body>
+</html>

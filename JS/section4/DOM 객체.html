@@ -81,11 +81,47 @@
   pElement.setAttributeNode(atrr);
   document.querySelector(".class").appendChild(pElement);
 
-  document.querySelector('h1').setAttributeNode(atrr.cloneNode(true));
+  document.querySelector('h1').setAttributeNode(atrr.cloneNode(true)); //속성값은 재사용 x 라서 클론노드로 넣어줌
 
   liList[3].remove(); // li 의 마지막 줄 인덱스[3] 제거
 
   pElement.removeAttribute("style"); // 추가한 p태그 빨간색 제거
+
+  //노드 관리 실습
+  //1번
+  let pTag = document.createElement('p');
+  document.body.appendChild(pTag);
+
+  let ptext = document.createTextNode('textnode를 이용한 텍스트입니다');
+  pTag.appendChild(ptext);
+
+  let attri = document.createAttribute('style');
+  attri.value = "color : blue";
+
+  pTag.setAttributeNode(attri);
+
+  //2번
+  pTag.removeAttribute('style'); // 제거 
+  
+
+  //3번
+  let h1 = document.querySelector('h1');
+  document.body.append(h1.cloneNode(true)) // body 에 h1 복제
+
+  let p2 = document.querySelector('p');
+  document.body.appendChild(p2.cloneNode(true)) // body 에 p 복제
+
+
+  let li = document.createElement('li')
+  
+  //노드 조작 실습
+  //1번
+  //let h1 = document.querySelector('h1') 앞에서 선언
+  h1.textContent = "textContent로 바꾼내용이다아아아";
+  h1.setAttribute('class','classname'); //setAttribute(name,value)
+  h1.setAttribute('style','color:green')
+
+  
 </script>
 
 </body>
