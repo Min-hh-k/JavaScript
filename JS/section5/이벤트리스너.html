@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+<h1 id="h1">제목입니다</h1>
+<p id="color">addEventListener로 제목을 눌러 제목색을 바꿉니다</p>
+
+  <div>
+    <h4>실습1</h4>
+    <p id="text1">눌러주세요</p>
+  </div>
+  
+  <ol>
+    <li id="first_list">
+      <input type="checkbox" name="" id="checkbox">첫번째 리스트
+    </li>
+    <li id="first_list">
+      <input type="checkbox" name="" id="checkbox">첫번째 리스트
+    </li>
+    <li id="first_list">
+      <input type="checkbox" name="" id="checkbox">첫번째 리스트
+    </li>
+  </ol>
+  
+  <script>
+    //addEventListener(이벤트명, 이벤트리스너(함수로 만들어서 함수명 입력))
+    //addEventListener('click', nameFunction)
+    const h1 = document.querySelector('h1')
+    h1.addEventListener('click',color)
+    h1.addEventListener('dblclick',color2)
+
+
+    function color(e) {
+      const p = e.target
+      p.style.color = "red"
+    }
+
+    function color2(e) {
+      const p = e.target
+      p.style.color = "black"
+    }
+
+    //실습 1 글자를 클릭하면 다른 글자 바뀌게만들기
+    const hiddenText = document.querySelector('#text1')
+    hiddenText.addEventListener('click', showText)
+    //text.addEventListener('dblclick',changeD)
+    //text.addEventListener('mouseover',changeO)
+    //text.addEventListener('mouseleave',changeL)
+
+    function showText(e) {
+      const text = e.target 
+      if (text.textContent == "숨겨진 단어입니다아2") {
+        text.textContent = "눌러주세요"
+        text.style.color = "black"
+      } else {
+        text.innerHTML = "숨겨진 단어입니다아2"       // == text.textContent = "숨겨진 단어입니다아2"
+        text.style.color = "red"
+      }
+    }
+/*
+    function changeD() {
+      const c = document.querySelector('#text1')
+      c.style.color = 'black'
+      c.innerHTML = '눌러주세요'
+    }
+
+    function changeO() {
+      const c = document.querySelector('#text1')
+      c.style.color = 'blue'
+      c.innerHTML = '지나갑니다'
+    }
+
+    function changeL() {
+      const c = document.querySelector('#text1')
+      c.style.color = 'black'
+      c.innerHTML = '눌러주세요'
+    }
+    */
+
+    //실습 2 체크박스 여부
+    const checkbox = document.querySelector('#checkbox')
+    checkbox.addEventListener('click', check);
+
+    function check(e) {
+      const checkEvent = e.target; // #checkbox
+      const li = document.querySelector('#first_list')
+      if(checkEvent.checked == true) { //#checkbox 값이 checked 됐을때?
+        li.style.color = "lightgray"
+      }
+      else {
+        li.style.color = "black"
+      }
+    }
+  </script>
+</body>
+</html>

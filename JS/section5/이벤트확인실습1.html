@@ -8,15 +8,34 @@
 </head>
 <body>
   <p>값을 넣어주세요</p>
-  <input type="text" id="inputT">
-  <button id="btn" onclick="textPlus()">확인</button>
+  <div>
+    <input type="text" id="inputT" onfocus="focusOn(event)" onblur="blurOn()">
+    <button id="btn" onclick="textPlus()">확인</button>
+  </div>
   <p id="under-text"></p>
 
   <script>
+    //1번 button 에 onclick 속성을 추가하여, 버튼을 클릭하면 input 안의 값을 p 요소에 text 값으로ㄱ
     function textPlus() {
       const t = document.querySelector('#inputT')
       const underT = document.querySelector('#under-text')
       underT.innerHTML = t.value
+      t.style.color = "blue"
+      //document.querySelector('#under-text').textContent = t.value
+    }
+
+    //2번 onfocus 일때 inputType text가  회색 배경색,  onblur 사용해서 배경색 흰색 ㄱ
+    function focusOn(event) {
+      const a = event.target
+      // 이벤트 객체를 들고 와서 이벤트가 실행되는 요소(태그)를 가져올 수 있다.
+      // body 부분 onfocus="focusOn(event)" 확인
+      //const a = document.querySelector('#inputT')
+      a.style.backgroundColor = 'gray'
+    }
+
+    function blurOn() {
+      const a = document.querySelector('#inputT')
+      a.style.backgroundColor = 'white'
     }
   </script>
 </body>

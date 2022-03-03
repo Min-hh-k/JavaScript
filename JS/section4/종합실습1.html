@@ -48,7 +48,7 @@
       h1.setAttribute("style", "color:blue");
 
       //li 변경
-      let firstUl = document.querySelector('.column');
+      let firstUl = document.querySelector('#menu .column');
       firstUl.removeChild(firstUl.childNodes[1])
       
       let lastLi = document.createElement('li') // 요소 노드 생성
@@ -71,8 +71,8 @@
       document.querySelector('.text-stytle').style.color = "red" // 빈 공간 색깔 red
 
       let p = document.querySelector('.content-body p'); //p 태그생성
-      document.querySelector('.content-body p').appendChild(p.cloneNode(true)) //복제
-      document.querySelector('.content-body p').appendChild(p.cloneNode(true)) //복제
+      document.querySelector('.content-body').appendChild(p.cloneNode(true)) //복제
+      document.querySelector('.content-body').appendChild(p.cloneNode(true)) //복제
       
 
     
