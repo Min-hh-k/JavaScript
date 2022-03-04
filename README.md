@@ -1,2 +1,3 @@
-# Academy
-##javascript basic
+# Javascript
+## javascript basic study~
+- dd
