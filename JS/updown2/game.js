@@ -40,7 +40,6 @@ function gameCheck(e) {
     const result = document.querySelector('#result');
     
     //DOM 값으로 ran 값 비교
-    userNum.value
     //if문 
         if ( userNum.value == String) {
             explan.textContent = `숫자를 입력해주세요^^`
