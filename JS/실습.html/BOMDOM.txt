@@ -1,0 +1,79 @@
+BOM/DOM/이벤트 - 개념잡기
+● BOM (브라우져 객체 모델)
+1. 가장 상위의 BOM 객체는 무엇인가요? 
+-window
+2. window.prompt() 함수를 사용하기 위해서는 window객체는 반드시 적어야하나요? 
+- x
+3, 타이머 함수(setTimeout)를 사용하면 그 아래에 있는 코드는 바로 실행되나요, 아니면 타
+이머 함수가 실행된 후에 실행되나요? 
+- 아래의 코드는 바로 실행된다
+그 아래에 있는 코드가 바로 실행된다면 타이머 함수는 어디에 있다가 실행이 되나요? 
+- 백그라운드에 있다가 시간이 되면 호출 스택에서 실행
+
+● DOM (문서 객체 모델)
+1. DOM은 어디에서 가져오나요? (어디에서 보여지나요) 
+① html ② js ③ css 
+- ①
+2. document 객체는 BOM의 어떤 객체의 하위 객체 인가요? 
+- window
+3. document의 하위 요소들이 어떤 구조로 이루어져 있는지 트리구조로 그려보세요.
+( html, head, title, body, h1, p )
+html- head- title 
+    - body - h1 , p
+
+● DOM을 찾기 위한 document.querySelector
+1. id="id_name" 찾기 위해서 사용하는 기호는? 
+- document.querySelector('#id')
+2. class="class_name" 찾기 위해서 사용하는 기호는?
+- document.querySelector('.class')
+● DOM과 Node의 형제, 자식, 부모 관계
+1. <li><a href="#">메뉴1</a></li> 요소의 parentElement는 무엇인가요?
+- ul
+
+2. <li><a href="#">메뉴1</a></li> 요소의 nextElementSibling 는 무엇인가요?
+- <li><a href="#">메뉴2</a></li>
+2-1. <li><a href="#">메뉴1</a></li> 요소의 nextSibling 는 무엇인가요?
+- 다음의 모든 내용or요소, #text
+
+3. <li><a href="#">메뉴1</a></li> 요소는 childNodes로 어떤 요소노드와 텍스트노드를 가
+지고 있나요?(없을시 없음으로)
+- 요소노드 : <a href="#">메뉴1</a>
+3-1. <a href="#">메뉴1</a> 요소는 childNodes로 어떤 요소노드와 텍스트노드를 가지고 있
+나요?(없을시 없음으로)
+- 텍스트노드 : 메뉴1
+
+● Node 제어 및 관리
+1. document.createElement( “p” )을 통하여 무엇을 만들 수 있나요?
+- <p></p>
+2. document.createTextNode( “반갑습니다” )을 통하여 무엇을 만들 수 있나요?
+
+3. document.createAttribute( “class” )을 통하여 무엇을 만들 수 있나요?
+let atrr = document.createAttribute('class') 클래스추가
+3-1. document.createAttribute( “class” )을 통해 만들어진 속성의 값은 어떻게 넣을 수 있
+나요?
+atrr.value = 'atrrValue'
+* 속성노드는 .setAttributeNode( 속성노드 )를 이용해서 추가할 수 있습니다.
+4. .setAttribute( “style” , “color : red”)을 통해 무엇을 만들 수 있나요?
+- 속성 색 레드 ??.setAttribute('style', 'color : red')
+
+● 이벤트
+1. 자바스크립트에서 말하는 이벤트란 무엇인가요?
+html과 js 와의 관계에서 살펴봅시다.
+
+- 이벤트(event)란 웹 브라우저가 알려주는 HTML 요소에 대한 사건의 발생을 의미합니다. click, mouseOver ..
+웹 페이지에 사용된 자바스크립트는 이렇게 발생한 이벤트에 반응하여 특정 동작을 수행할 수 있습니다.
+따라서 클라이언트 측 자바스크립트를 비동기식 이벤트 중심(event-driven)의 프로그래밍 모델이라고 합니다.
+
+2. DOM에 “클릭” 이벤트 발생시킬 수 있는 두가지 방법은 무엇인가요?
+1) 요소의 속성값으로 추가하는 방법 : <p onclick="함수이름()> <p>
+2) 자바스크립트에서 추가하는 방법 : 지정변수.addEventListener('click',함수이름)
+
+3. 문서 객체(DOM)와 이벤트 리스너와 함수의 관계를 그림으로 그려보세요.
+문서객체 : <h5 id="hidden" title="누르면 메뉴가 숨겨집니다">메뉴 숨기기</h5>
+이벤트 리스너 : addEventListener("click", hiddenMenu);
+함수 : function hiddenMenu() {}
+4. 클릭하면 메뉴를 숨기기 위해 <h5>메뉴 숨기기<h5>에
+함수 : function hiddenMenu() {}을 만들어서 추가해주세요.
+5. 클릭하면 메뉴를 보이기 위해 <h5>메뉴 보이기<h5>에
+함수 : function showMenu() {}을 만들어서 추가해주세요.
+* removeAttribute(“속성명”)을 통해 속성을 지울 수 있다.
