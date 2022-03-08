@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="./common.css">
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+</head>
+<body>
+  <h1>제이쿼리</h1>
+  <p>제이쿼리를 이용하여 접근</p>
+
+  <ul>
+    <li>첫번째 리스트</li>
+    <li>두번째 리스트</li>
+    <li id="li_id">세번째 리스트</li>
+    <li>네번째 리스트</li>
+  </ul>
+  <button>버튼</button>
+
+  <form id="form_id">
+    <input type="checkbox" name="" id="text_check">체크 박스를 누르면 아래 입력창이 활성화된다<br>
+    <input type="text" name="" id="text_input" disabled="true" class="hidden">
+  </form>
+
+
+
+  <script>
+    //$(선택자).동작함수();
+
+    //이벤트 메소드
+    //$('button').on('click',function() {})
+    // == document.querySelector('button').addEventListener('click',function() {})
+
+    $(function() { //문서준비 메서드
+      $("p").on('click', function () {
+
+      // getter 메소드 : 선택된 요소의 값을 반환, setter 메소드: 선택된 모든 요소에 접근 할 수 있는 또 다른 제이쿼리 객체를 반환
+      $("p").css("color","red").html('내용을 변경'); //메소드 체이닝  
+
+      // 요소 내부 추가 append
+      $("body").append($("<p>").text('새로만든p태그'));
+
+      //요소 외부 추가 after
+      //$("p").after($("<p>").text('새로만든p태그'));
+      $("p:first").after($("<p>").text('새로만든p태그'));
+      $("p:last").remove(); //제거
+      $("body").append($("h1").clone()); // 복제
+
+      const p = $("p") // 변수에 넣어서 사용 가능
+      p.css("background-color","yellow") // 동일하게 제이쿼리 메소드 사용
+      
+      });
+    });
+
+    $("button").on("click", function() {
+      //자식 요소 탐색
+      $("ul").children().first().css("color","blue");
+      //필터메소드를 이용한 탐색
+      $("ul").children().filter(":last").css("color","blue");
+      // find 메소드 이용한 자손 탐색
+      $("ul").find("#li_id").css( //.css({ })
+        { // css 와 동일하게 값 입력, "" 안에는 문자 취급하기에 "background-color" 가능, 
+        //자바스크립트는 backgroundColor 카멜케이스적용,, "" 에도 카멜케이스적용 가능
+          color : "yellow",
+          backgroundColor : "blue",
+        }
+      );
+
+      //css의 스타일 값에 접근
+      $("#li_id").css("color") // #li_li의 color 값 가져오기
+      $("body").html($("#li_id").css("backgrond-color"));
+    });
+
+// 체크박스
+
+    $("#text_check").on('click', function () {
+      console.log($("#text_check").prop("checked")); 
+      // 값을 1개만 넣어줄 때는 "" 감싼 문자열, 여러개 넣을 땐 {} 감싼 객체로 {변수명: 값/메소드, ~}
+      if ($("#text_check").prop("checked")) { //체크 될때 true
+        $("#text_input").prop({ //prop & attr 을 통해 속성 접근
+          disabled: false
+        });
+        $("#text_input").removeClass("hidden") // removeClass 통해 클래스 제거
+      } else { //체크가 안될 때
+        $("#text_input").attr("disabled", true)
+        $("#text_input").addClass("hidden") // addClass 통해 클래스 추가
+      }
+      $("h1").toggleClass("color");
+    });
+  </script>
+</body>
+</html>
