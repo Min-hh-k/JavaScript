@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+</head>
+<body>
+  <script>
+    $(document).ready(function() {
+      //methods
+    })
+    
+    $(function () {
+
+    })
+    $("p") // 요소 선택 
+    $("#button") // id 선택
+    $(".test") // class 선택
+    $("*") // 전부선택
+    $("this") // 현재 요소
+
+    $("p").click(function () {
+      $(this).hide();
+    })
+    click()
+    dblclick()
+    mouseenter()
+    mouseleave()
+    mousedown() //클릭
+    mouseup() // 클릭 떼기
+    hover()
+    focus()
+    blur() //포커스를 잃을 때 실행
+
+
+    $("selector").hide()
+    $("selector").show()
+    $("selector").toggle()
+
+    $("selector").fadeIn("speed"/*(숫자는 "" x)*/, callback)
+    fadeIn() //나타내기
+    fadeOut() // 사라지기
+    fadeToggle() //나타내기 사라지기 토글(on/off)
+    fadeTo("speed",opacity)
+
+    slideDown("slow") //요소를 아래로 슬라이드
+    slideUp(3000) //요소를 위로 슬라이드
+    slideToggle()
+
+    $("selector").animate({params=css속성},speed,callback);
+    $("div").animate({left: '250px'});
+
+    $("div").animate({ //여러속성 ,, 카멜케이스 margin-right 대신 marginRight 
+      left: '250px',
+      opacity: '0.5',
+      height: '150px',
+      width: '150px'
+    });
+
+    //미리 정의된 값 사용
+    $("button").click(function(){
+      $("div").animate({
+        height: 'toggle'
+      });
+    }); 
+
+    //대기열 기능
+    $("button").click(function(){
+  var div = $("div");
+  div.animate({height: '300px', opacity: '0.4'}, "slow");
+  div.animate({width: '300px', opacity: '0.8'}, "slow");
+  div.animate({height: '100px', opacity: '0.4'}, "slow");
+  div.animate({width: '100px', opacity: '0.8'}, "slow");
+}); 
+    //정지
+    $("selector").stop(stopAll,goToEnd);
+
+    //콜백함수 ,, 숨기기 효과가 완료된 후 실행될 함수인 콜백 매개변수
+    $("button").click(function(){
+      $("p").hide("slow", function(){
+        alert("The paragraph is now hidden");
+      });
+    });
+
+    //체이닝 ,, 연결을 사용하면 단일 문 내에서 동일한 요소에서 여러 jQuery 메서드를 실행할 수 있다
+    $(function() {
+      $("button").click(function(){
+        $("#p1").css("color", "red").slideUp(2000).slideDown(2000);
+      });
+    });
+
+  </script>
+</body>
+</html>
