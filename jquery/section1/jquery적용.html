@@ -69,6 +69,14 @@
         }
       );
 
+      let btn = document.querySelector('button')
+      btn.addEventListener('click', colorChange)
+      function colorChange () {
+        const li = document.querySelector('li')
+        li.style.color = "red"
+        li.style.backgroundColor = "green"
+      }
+
       //css의 스타일 값에 접근
       $("#li_id").css("color") // #li_li의 color 값 가져오기
       $("body").html($("#li_id").css("backgrond-color"));
@@ -77,12 +85,14 @@
 // 체크박스
 
     $("#text_check").on('click', function () {
-      console.log($("#text_check").prop("checked")); 
+      console.log($("#text_check").prop("checked")); //true false console 창 출력
       // 값을 1개만 넣어줄 때는 "" 감싼 문자열, 여러개 넣을 땐 {} 감싼 객체로 {변수명: 값/메소드, ~}
       if ($("#text_check").prop("checked")) { //체크 될때 true
-        $("#text_input").prop({ //prop & attr 을 통해 속성 접근
-          disabled: false
-        });
+
+        // $("#text_input").prop({ //prop & attr 을 통해 속성 접근
+        //   disabled: false
+        // });
+        $("#text_input").prop("disabled", false)
         $("#text_input").removeClass("hidden") // removeClass 통해 클래스 제거
       } else { //체크가 안될 때
         $("#text_input").attr("disabled", true)
