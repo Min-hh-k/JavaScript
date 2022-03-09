@@ -38,8 +38,11 @@ $("#memo-form").on('submit', function (event) {
   event.preventDefault()
 
   const memo = $("#memo-form input:first").prop("value")
+  // (html로 넣게되면 문자열로 들어간 태그(<br>)도 html 태그로 인식)
   $("#memo-board").append(
     $("<div>").html(memo)
     );
+    // $()사용하면 전체의 요소를 찾기때문에 :first를 이용하여 필터링.
+    // prop을 이용하여 value값 을 "" 으로 할당 
   $("#memo-form input:first").prop("value","")
 });

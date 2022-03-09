@@ -81,6 +81,96 @@ $("button").click(function(){
   $("#div1").addClass("important blue");
 });
 
+//접근 ,,traversing
+
+//조상
+parent() // 직접적인 부모 요소
+parents() // 문서의 루트 요소( )까지 선택한 요소의 모든 상위 요소를 반환합니다
+parentsUntil() // 주어진 두 인수 사이의 모든 상위 요소를 반환
+
+$(document).ready(function(){
+  $("span").parent();
+});
+
+$(document).ready(function(){ // <span>다음 예제에서는 모든 요소 의 모든 상위 항목을 반환
+  $("span").parents();
+});
+
+$(document).ready(function(){ // <span>과 <div>요소 사이의 모든 상위 요소를 반환
+  $("span").parentsUntil("div");
+});
+
+//자손
+children() //직계 자식인 모든 요소를 ​​반환
+find() // 마지막 하위 항목까지 선택한 요소의 하위 요소를 반환
+find("*") // 모든하위 항목 반환
+
+//형제
+siblings()
+next() // 선택한 요소의 다음 형제 요소를 반환
+nextAll() //  선택한 요소의 다음 형제 요소를 모두 반환
+nextUntil() //주어진 두 인수 사이의 모든 다음 형제 요소를 반환
+
+prev() //위와 역방향으로 요소 반환
+prevAll()
+prevUntil()
+
+//필터링
+
+first() // 지정된 요소의 첫 번째 요소를 반환
+last() // 지정된 요소의 마지막 요소를 반환
+eq(1) // 선택한 요소의 특정 인덱스 번호를 가진 요소를 반환,인덱스 번호는 0에서 시작하므로 첫 번째 요소의 인덱스 번호는 1이 아니라 0
+filter() // 기준을 지정할 수 있다. 기준과 일치하지 않는 요소는 선택에서 제거되고 일치하는 요소가 반환
+$(document).ready(function(){ //  <p>클래스 이름이 "intro"인 모든 요소를 ​​반환
+  $("p").filter(".intro").css("background-color", "yellow");
+});
+
+not() // 기준과 일치하지 않는 모든 요소를 ​​반환
+$(document).ready(function(){ // <p>클래스 이름 "intro"가 없는 모든 요소를 ​​반환
+  $("p").not(".intro");
+});
+
+// AJAX = 비동기 JavaScript 및 XML.
+// AJAX는 전체 페이지를 다시 로드하지 않고 백그라운드에서 데이터를 로드하고 웹페이지에 표시하는 것
+
+load() // 서버에서 데이터를 로드하고 반환된 데이터를 선택한 요소에 넣습니다
+$(selector).load(URL,data,callback);
+
+$("#div1").load("demo_test.txt");
+$("#div1").load("demo_test.txt #p1"); // "demo_test.txt" 파일 내에서 id="p1"인 요소의 콘텐츠를 특정 <div>요소로 로드
+
+
+//클라이언트와 서버 간의 요청-응답에 일반적으로 사용되는 두 가지 방법은 GET 및 POST
+
+GET // 지정된 리소스에서 데이터를 요청 합니다.
+POST // 처리할 데이터를 지정된 리소스에 제출 합니다.
+
+$.get(URL,callback);
+
+$.post(URL,data,callback);
+
+// noConflict() ,, $ 겹침 방지
+$.noConflict();
+jQuery(document).ready(function(){
+  jQuery("button").click(function(){
+    jQuery("p").text("jQuery is still working!");
+  });
+});
+
+let jq = $.noConflict();
+jq(document).ready(function(){
+  jq("button").click(function(){
+    jq("p").text("jQuery is still working!");
+  });
+});
+
+
+
+
+
+
+
+
   </script>
 </body>
 </html>
