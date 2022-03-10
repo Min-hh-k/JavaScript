@@ -61,8 +61,9 @@ $("#todo-button").on('click', function () {
     }
   })
   const button = $("<button>").text("X")
-  button.on('click', function (event) {
-    event.target.parentNode.remove();
+  button.on('click', function () {
+    // 제이쿼리객체인 this를 통해서 현재 실행된 DOM가져올수있다.
+    $(this).parent().remove(); //
   })
   const todo = $("#memo-form input:first").prop("value")
 
@@ -70,3 +71,4 @@ $("#todo-button").on('click', function () {
     $("<li>").append(checkbox).append(todo).append(button))
 
 })
+
