@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+</head>
+<body>
+  <form>
+    <input type="text" id="change"><br>
+    <input type="text" id="select"><br>
+    포커스 인풋<br>
+    <input type="text" id="focus">
+
+  </form>
+    <p id="select_p"></p>
+
+  <script>
+    //focus , blur, submit 이벤트를 사용 할 수 있다
+    $('#change').on('change', function() {
+      $(this).css('color', 'tomato')
+    })
+
+    $('#select').on('select', function() {
+      $('#select_p').append('선택되었습니다<br>')
+    })
+    // focus 와 blur 를 사용하여 배경색 변경
+
+    $('#focus').on({
+      focus: function() {
+        $(this).css('backgroundColor','yellow')
+      },
+      blur: function() {
+        $(this).css('backgroundColor','white')
+      }
+    })
+
+  </script>
+</body>
+</html>

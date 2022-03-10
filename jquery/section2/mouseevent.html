@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+</head>
+<body>
+
+  <button id="mouse">마우스 이벤트가 있는 부분</button>
+
+  <button id="btn">버튼입니다</button>
+  <h1 id ="btn_h1">list 생성되는 곳</h1>
+  <ul id="btn_ul"></ul>
+
+  <p>'버튼입니다'<br> 클릭하면 list가 생성<br> 마우스를 올리면 title의 색이 바뀐다<br> 마우스가 빠져나가면 원래색으로 돌아온다</p>
+  
+  <script>
+    $("#mouse").on({
+      // click, dblclick, mouseenter 
+      dblclick: function() {
+        $('body').append("마우스를 더블클릭했습니다<br>")
+      },
+      mouseleave: function() {
+        $('body').append("마우스가 떠났습니다<br>")
+      },
+    })
+
+    $('#btn').on({
+      click: function () {
+        $('#btn_ul').append('<li><a>새로운 리스트가 생성되었습니다</a></li>')
+      },
+      mouseenter: function () {
+        $('#btn_h1').css('color', 'red')
+      },
+      mouseleave: function () {
+        $('#btn_h1').css('color', 'black')
+      },
+    })
+  </script>
+</body>
+</html>
