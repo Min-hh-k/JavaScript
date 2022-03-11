@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+  <style>
+    #yellow-box {
+      width: 100px;
+      height: 100px;
+      border: 3px solid orange;
+      background-color: yellow;
+      margin-top: 10px;
+    }
+    #toggle-yellow-box {
+      width: 100px;
+      height: 100px;
+      border: 3px solid orange;
+      background-color: yellow;
+      margin-top: 10px;
+    }
+    #slide-yellow-box {
+      width: 100px;
+      height: 100px;
+      border: 3px solid orange;
+      background-color: yellow;
+      margin-top: 10px;
+      position: fixed;
+      top: 10px;
+      right: 10px;
+    }
+    #div_btn {
+      position: absolute;
+      right: 2px;
+      top: 2px;
+    }
+  </style>
+</head>
+<body>
+
+  <button id="show_button">보임</button>
+  <button id="hide_button">숨김</button>
+
+  <p id="text">글자가 보이고 숨겨집니다</p>
+
+  <button id="toggle_button">토글버튼</button>
+  <div id="toggle_text">
+    <p>이 요소는 div 안의 p요소</p>
+    <p>toggle을 통해 효과를 주었다</p>
+  </div>
+
+  <button id="fadein">보임</button>
+  <button id="fadeout">숨김</button>
+
+  <p id="fade_text">글자가 보여지고 숨겨짐</p>
+
+  <button id="yellow-btn">버튼에 마우스를 올리면 상자가 나타나고 사라집니다</button>
+  <button id="stopbutton">멈춤</button>
+  <div id="yellow-box"></div>
+
+  <p>fadeToggle 실행</p>
+  <button id="fadeToggleBtn">클릭 나타나고 클릭 사라짐</button>
+  <div id="toggle-yellow-box"></div>
+
+  <button id="slideup">슬라이드업</button>
+  <button id="slidedown">슬라이드다운</button>
+
+  <p id="slidetext">글자가 보여지고 숨겨짐</p>
+
+  <h2>고정된 div 나타내기</h2>
+  <button id="slide_btn">고정된 div 토글 버튼</button>
+  <div id="slide-yellow-box">
+    <button id="div_btn">X</button>
+  </div>
+
+  <script>
+    $("#show_button").on('click', function() {
+      $("#text").show(1000)
+    })
+
+    $("#hide_button").on('click', function () {
+      $('#text').hide("fast")
+    })
+
+    $("#toggle_button").on('click', function () {
+      $('#toggle_text').toggle("slow")
+    })
+
+    $('#toggle_text').hide()
+
+    $('#fadein').on('click', function () {
+      $('#fade_text').fadeIn(2000)
+    })
+
+    $('#fadeout').on('click', function () {
+      $('#fade_text').fadeOut('slow')
+    })
+
+    $('#yellow-btn').on({
+      mouseenter: function() {
+        $('#yellow-box').fadeIn('fast').delay(1000)
+      },
+      mouseleave: function() {
+        $('#yellow-box').fadeOut('fast')
+        $('stopbutton').on('click', function() {
+          $('#yellow-box').stop()
+          })
+        },
+      })
+  
+    $("#fadeToggleBtn").on("click", function() {
+				$("#toggle-yellow-box").fadeToggle(1000);
+			});
+      
+      $('#slideup').on('click', function () {
+      $('#slidetext').slideUp(2000)
+    })
+
+    $('#slidedown').on('click', function () {
+      $('#slidetext').slideDown('slow')
+    })
+
+    $('#slide_btn').on('click', function () {
+      $('#slide-yellow-box').slideToggle('fast')
+    })
+
+    $('#div_btn').on('click', function () {
+      $('#slide-yellow-box').slideUp('fast')
+    })
+
+  </script>
+</body>
+</html>

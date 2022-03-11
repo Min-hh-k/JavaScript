@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+  <style>
+    #box, #box2 {
+      width: 100px;
+      height: 100px;
+      border: 5px solid green;
+      background-color: lime;
+      margin-top: 10px;
+      margin-bottom: 10px;
+    }
+  </style>
+</head>
+<body>
+  <!-- 버튼 3개 -->
+  <!-- slideToggle() -->
+  <!-- stop() -->
+  <!-- finish() -->
+
+  <button id="slide-btn">슬라이드토글</button>
+  <button id="stop-btn">멈춤</button>
+  <button id="finish-btn">끝내기</button>
+
+  <div id="box"></div>
+
+  <button id="animate">사용자 애니메이션</button>
+  <div id="box2"></div>
+
+  <script>
+    $(function () { 
+    $('#slide-btn').on('click', function() {
+      $('#box').slideToggle(2000)
+    })
+    $('#stop-btn').on('click', function () {
+      $('#box').stop()
+    })
+    $('#finish-btn').on('click', function () {
+      $('#box').finish()
+    })
+  })
+
+  $('#animate').on('click',function () {
+    //애니메이션 바꿀 css 요소, 애니메이션 실행시간 밀리초,애니메이션이 끝나고 실행 시킬 함수 작성
+    $('#box2').animate({
+      opacity: 0.2,
+      width: 10,
+      height: 10,
+    }, 1000 , function () { 
+      $('#animate').text("애니메이션 활성화!")
+    })
+  })
+
+  </script>
+</body>
+</html>
