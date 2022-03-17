@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <!-- JQUERY CDN -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+  
+  <style>
+    body {
+      width: 100%;
+      display: inline-block;
+      text-align: center;
+    }
+
+    h2 a {
+      border: 1px solid thistle;
+      border-radius: 10px;
+      padding: 15px;
+      text-decoration: none;
+      color: steelblue;
+      background-color: ghostwhite;
+      
+    }
+  </style>
+</head>
+
+<body>
+  <h1>넌센스 퀴즈</h1>
+  <p>3문제맞추기 // 중복있음</p>
+  
+  <p id="time">0초</p>
+
+  <h2><a href="" id="start">Start!</a></h2>
+
+  <h2 id="quiz" style="padding: 20px;"></h2>
+  <form id="input_form" style="display: none; padding-top: 20px;">
+    <input type="text" style="padding: 15px;">
+    <p>(띄워쓰기X)</p>
+  </form>
+
+  <p id="score"></p>
+
+  <script>
+    let score = 0
+    let count = 0
+    let randomNum = 0
+    let sec = 0 // 타이머
+
+    let quizList = [
+      {quiz:"자가용의 반대말은?", answer:"커용"},
+      {quiz:"전주비빔밥의 반대말은?", answer:"이번주비빔밥"},
+      {quiz:"추장보다 높은 사람은?", answer:"고추장"},
+      {quiz:"꽃가게 주인이 제일 싫어하는 나라는?", answer:"시드니"},
+      {quiz:"해가 울면?", answer:"해운대"},
+      {quiz:"96*3", answer:"288"},
+      {quiz:"왕이 꿈틀대면?", answer:"왕꿈틀이"},
+      {quiz:"세계에서 몸집이 제일 큰 여자의 이름은?", answer:"태평양"},
+      {quiz:"길에서 죽은 사람은?", answer:"도사"},
+      {quiz:"중학생과 고등학생이 타는 차는?", answer:"중고차"},
+    ]
+
+    function quizstart() {
+      randomNum = Math.floor(Math.random()*quizList.length)
+      $('#quiz').text(quizList[randomNum].quiz) //quizArray 에서 quiz 부분 랜덤 추출
+    }
+
+    function secCount() {
+      sec++;
+      $('#time').text(`${sec}초`); //초 카운트
+    }
+
+    // start
+    $('#start').on('click', function(e) {
+      e.preventDefault()
+      $('#input_form').slideDown()
+      $('#input_form').children().focus()
+      quizstart()
+      Count = setInterval("secCount()", 1000); //간격 1초로 반복 타이머 설정
+    })
+
+    $('#input_form').on('submit', function(e) {
+      e.preventDefault()
+      const answer = quizList[randomNum].answer
+      const user = $('#input_form').children().val()
+      count++
+      if (user == answer) {
+        score++
+      }
+
+      quizstart()
+      $('#input_form').children().val('')
+      $('#score').text(`${score}점 획득!  ${sec}초 걸렸어요~`)
+
+      if (count == 3) {
+        $('#input_form').hide()
+        $('#quiz').text('')
+        $('#time').text('')  // 시간 텍스트 X 
+        clearInterval(Count) // 시간 종료
+        count = 0
+        score = 0
+        sec = 0
+      }
+    })
+
+//     function timer() {
+//     let sec = setTimeout(, 1000);
+//     $('#sec').text(`${sec}`)
+// }
+//   timer()
+
+
+
+
+
+
+  </script>
+</body>
+</html>
