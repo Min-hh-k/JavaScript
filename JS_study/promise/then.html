@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+        function a(number) {
+      return new Promise((resolve, reject) => {
+        if (number > 4) {
+          reject() //reject() 가 실행되면 resolve() 가 실행이 되지 않는다
+        }
+        setTimeout(() => {
+          console.log('A')
+          resolve()
+        }, 1000)
+      })
+    }
+
+    // function test() {
+    //   a(5)
+    //   .then(() => {
+    //     console.log('Resolve!')
+    //   })
+    //   .catch(() => {
+    //     console.log('Reject!')
+    //   })
+    //   .finally(() => { // 항상 동작
+    //     console.log('done!')
+    //   })
+    // }
+
+    // ==
+
+    async function test() {
+      try {
+        await  a(5)
+        console.log('Resolve!')
+      } catch (error) {
+        console.log('Reject!')
+      } finally {
+        console.log('done!')
+      }
+
+    }
+
+    test()
+  </script>
+</body>
+</html>
